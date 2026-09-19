@@ -82,6 +82,21 @@ final class PaletteWindowController {
         NSApp.activate(ignoringOtherApps: true)
     }
 
+    /// Show the panel already filled in, for making the pictures in the readme.
+    ///
+    /// Bypasses `show()` because that resets the state, which is right for a
+    /// person opening the launcher and wrong here. Rendering these views to an
+    /// image instead of photographing a real window does not work: the text
+    /// field is AppKit underneath and comes out as a yellow placeholder, and
+    /// the result rows do not lay out at all.
+    func showFilled(_ fill: (PaletteState) -> Void) {
+        fill(state)
+        panel.layoutIfNeeded()
+        place()
+        panel.makeKeyAndOrderFront(nil)
+        NSApp.activate(ignoringOtherApps: true)
+    }
+
     /// Something on the launcher page of settings changed. Rereading the tokens
     /// republishes state, which is what makes the panel redraw and pick up the
     /// toggles it reads straight from the defaults.

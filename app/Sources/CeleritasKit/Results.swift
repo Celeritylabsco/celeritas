@@ -33,6 +33,11 @@ public struct ResultSection: Sendable, Identifiable {
     public let title: String
     public let results: [Result]
     public var id: String { title }
+
+    public init(title: String, results: [Result]) {
+        self.title = title
+        self.results = results
+    }
 }
 
 /// Everything the launcher can offer for one query, in the order a person wants

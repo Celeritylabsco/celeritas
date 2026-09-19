@@ -50,7 +50,22 @@ PLIST
 
 # An ad-hoc signature is enough for a local run, and without one macOS reissues
 # the permission prompts on every rebuild because the identity keeps changing.
-codesign --force --deep --sign - "$APP" 2>/dev/null || echo "  (unsigned)"
+#
+# Set SIGN_IDENTITY to a Developer ID to sign for release instead. Notarising
+# needs three things beyond the identity: the hardened runtime, a secure
+# timestamp from Apple, and no --deep, which the notary service rejects because
+# it signs nested code with the wrong requirements. Apple will refuse a build
+# missing any of them, and the error names none of them clearly.
+#
+#     SIGN_IDENTITY="Developer ID Application: <Entity> (TEAMID)" \
+#       ./Scripts/build-app.sh release
+if [ -n "${SIGN_IDENTITY:-}" ]; then
+  codesign --force --options runtime --timestamp \
+    --sign "$SIGN_IDENTITY" "$APP"
+  echo "  signed: $SIGN_IDENTITY"
+else
+  codesign --force --deep --sign - "$APP" 2>/dev/null || echo "  (unsigned)"
+fi
 
 # LaunchServices caches an icon against the bundle id and will keep serving the
 # blank tile from before the icon existed. Re-registering is what clears it.

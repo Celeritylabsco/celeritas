@@ -51,8 +51,10 @@ struct OnboardingView: View {
             Text("Pick where answers come from")
                 .font(.system(size: 21, weight: .semibold))
                 .foregroundStyle(Palette.ink)
-            Text("Scores are out of 55 tool-use tasks, the same tasks for every model. "
-                 + "You can change this any time in Settings.")
+            // Never write the count out. The scores beside each option come from
+            // the held-out split, and this line said 55 while they said 22.
+            Text("Scores are out of \(Shortlist.current.tasks) held-out tool-use tasks, "
+                 + "the same tasks for every model. You can change this any time in Settings.")
                 .font(.system(size: 12.5))
                 .foregroundStyle(Palette.ink.opacity(0.55))
                 .fixedSize(horizontal: false, vertical: true)
@@ -117,8 +119,12 @@ struct OnboardingView: View {
     static func score(_ backend: Backend) -> String {
         switch backend {
         case .apple: return AppleBaseline.score ?? "not measured yet"
-        case .localModel: return LocalBaseline.score
-        case .orbio: return Shortlist.current.byScore.first?.score ?? ""
+        // Both from the same split, or the toggle shows 39/55 beside 18/22 and
+        // invites a comparison that is not one.
+        case .localModel:
+            return Shortlist.current.byScore.first { $0.local == true }?.score
+                ?? LocalBaseline.score
+        case .orbio: return Shortlist.current.throughGateway.first?.score ?? ""
         }
     }
 

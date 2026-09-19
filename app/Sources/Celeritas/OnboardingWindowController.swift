@@ -9,6 +9,13 @@ final class OnboardingWindowController {
     private var window: NSWindow?
     private let state = OnboardingState()
 
+    /// Preset the choice and a key, for the picture of the gateway pane. The
+    /// key is made of zeroes, so nothing real is ever in a screenshot.
+    func preset(_ backend: Backend, key: String = "") {
+        state.choice = backend
+        state.key = key
+    }
+
     func show(then finished: @escaping () -> Void) {
         if let window {
             window.makeKeyAndOrderFront(nil)

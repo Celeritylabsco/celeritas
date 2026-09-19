@@ -13,6 +13,11 @@ public struct Usage: Sendable, Equatable, Identifiable {
     public let name: String
     public let value: String
     public var id: String { name }
+
+    public init(name: String, value: String) {
+        self.name = name
+        self.value = value
+    }
 }
 
 public struct SystemStats: Sendable, Equatable {
@@ -47,6 +52,18 @@ public struct Machine: Sendable, Equatable {
     public let diskTotal: UInt64
     public let topCPU: [Usage]
     public let topMemory: [Usage]
+
+    public init(cpu: Double, memoryUsed: UInt64, memoryTotal: UInt64,
+                diskFree: UInt64, diskTotal: UInt64,
+                topCPU: [Usage], topMemory: [Usage]) {
+        self.cpu = cpu
+        self.memoryUsed = memoryUsed
+        self.memoryTotal = memoryTotal
+        self.diskFree = diskFree
+        self.diskTotal = diskTotal
+        self.topCPU = topCPU
+        self.topMemory = topMemory
+    }
 
     public static let empty = Machine(cpu: 0, memoryUsed: 0, memoryTotal: 0,
                                       diskFree: 0, diskTotal: 0,

@@ -80,11 +80,19 @@ public struct Shortlist: Codable, Sendable {
 
     /// Highest scoring, ties broken by cost. What to pick for someone who has not
     /// chosen, so the default is a measured one rather than the first line of a file.
+    /// Only the ones a gateway can serve. The shortlist carries the local
+    /// models too, because they earned their place on the held-out split, and
+    /// offering one of those under "paste your key" is nonsense.
+    public var throughGateway: [ScoredModel] {
+        byScore.filter { $0.local != true }
+    }
+
     public var byScore: [ScoredModel] {
         models.sorted { ($0.accuracy, -$0.costPerRun) > ($1.accuracy, -$1.costPerRun) }
     }
 
-    public var best: String { byScore.first?.id ?? "openai/gpt-oss-20b" }
+    /// What a fresh install points at. Must be one a gateway can serve.
+    public var best: String { throughGateway.first?.id ?? "z-ai/glm-5.3-flash" }
 
     /// What one question costs on a given model, at this suite's size.
     public func perQuestion(_ model: ScoredModel) -> Double { model.perQuestion(over: tasks) }

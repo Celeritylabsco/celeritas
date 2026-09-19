@@ -164,6 +164,9 @@ struct SettingsView: View {
     @State private var statCards = Settings.statCards
     @State private var showExamples = Settings.showExamples
     @State private var page: Page = .model
+    /// Which page to open on. Only set when making the pictures, so both pages
+    /// can be photographed without anybody clicking.
+    var startPage: Page?
 
     /// Two pages rather than one long scroll. The model settings were already
     /// a full screen on their own, and a launcher option at the bottom of them
@@ -175,7 +178,8 @@ struct SettingsView: View {
         var blurb: String {
             switch self {
             case .model:
-                return "Every answer is measured on the same 55 tasks, so the "
+                return "Every answer is measured on the same \(Shortlist.current.tasks) "
+                     + "held-out tasks, so the "
                      + "numbers below compare like with like."
             case .launcher:
                 return "What the panel shows before you type anything."
@@ -221,6 +225,7 @@ struct SettingsView: View {
     private var scrollingBody: some View {
         VStack(alignment: .leading, spacing: 22) {
             pageTabs
+                .onAppear { if let startPage { page = startPage } }
             Text(page.blurb)
                 .font(.system(size: 12))
                 .foregroundStyle(ink.opacity(0.5))
@@ -722,7 +727,7 @@ struct SettingsView: View {
                         .font(.system(size: 10, design: .monospaced))
                         .foregroundStyle(ink.opacity(0.35))
                 }
-                ForEach(Shortlist.current.byCost) { candidate in
+                ForEach(Shortlist.current.byCost.filter { $0.local != true }) { candidate in
                     Button {
                         state.model = candidate.id
                     } label: {

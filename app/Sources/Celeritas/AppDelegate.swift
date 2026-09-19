@@ -11,9 +11,18 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     private let tips = TipsWindowController()
     /// Held, because a scheduled timer nobody keeps is released and never fires.
     private var labRefresh: Timer?
+    /// Set by `--demo`. Opens one window in one fixed state and skips the
+    /// status item, the hotkey and the network, so a picture of it is the same
+    /// every time it is taken.
+    var demo: String?
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         installEditMenu()
+
+        if let demo {
+            showDemo(demo)
+            return
+        }
 
         let item = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         item.button?.title = "[ ]"
@@ -81,6 +90,27 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     /// handler and the system plays the error sound. The menu is never drawn,
     /// because an accessory app has no menu bar, and it exists only so the
     /// shortcuts resolve. This broke pasting an Orbio key into Settings.
+    /// One window, one fixed state, nothing else running.
+    private func showDemo(_ name: String) {
+        switch name {
+        case "onboarding":
+            onboarding.show {}
+        case "onboarding-key":
+            onboarding.preset(.orbio,
+                key: "sk-orbio-0000000000000000000000000000000000000000000")
+            onboarding.show {}
+        case "settings", "settings-model":
+            settings.show()
+        case "settings-launcher":
+            settings.startPage = .launcher
+            settings.show()
+        default:
+            let palette = PaletteWindowController()
+            palette.showFilled { Shots.fill($0, name) }
+            controller = palette
+        }
+    }
+
     private func refreshLabData() {
         Task {
             await Currency.refreshIfStale()

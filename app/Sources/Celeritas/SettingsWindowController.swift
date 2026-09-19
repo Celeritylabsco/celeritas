@@ -10,6 +10,8 @@ final class SettingsWindowController {
     /// only the app layer can reach Carbon.
     var onHotkeyChanged: (() -> Void)?
     var onLauncherChanged: (() -> Void)?
+    /// Which page to open on, for the pictures.
+    var startPage: SettingsView.Page?
 
     func show() {
         if let window {
@@ -18,7 +20,8 @@ final class SettingsWindowController {
             return
         }
         let host = NSHostingController(rootView: SettingsView(onHotkeyChanged: onHotkeyChanged,
-                                                            onLauncherChanged: onLauncherChanged))
+                                                            onLauncherChanged: onLauncherChanged,
+                                                            startPage: startPage))
         host.sizingOptions = [.preferredContentSize]
         let w = NSWindow(contentViewController: host)
         w.title = "Celeritas"
