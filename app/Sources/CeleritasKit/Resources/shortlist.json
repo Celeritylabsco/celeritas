@@ -1,0 +1,111 @@
+{
+ "decided": "2026-09-19",
+ "basis": "22 held-out tasks, tool_choice=auto, one trial, temperature 0",
+ "tasks": 22,
+ "tie_break": "cost per run, ascending, applied to models level on score",
+ "caveats": [
+  "Held-out, so no prompt or tool was tuned against these. Every model scored 5 to 23 points lower here than on the development split.",
+  "22 tasks means one task is 4.5 points. Models within one task of each other are not ranked by this.",
+  "One trial per model at temperature zero. No error bars.",
+  "No frontier models were tested. The suite exists to choose something cheap enough to sit behind every keystroke.",
+  "Cost and latency are carried over from the development run, which covers more tasks and so gives a steadier figure."
+ ],
+ "models": [
+  {
+   "id": "z-ai/glm-5.3-flash",
+   "score": "18/22",
+   "tuned_score": "52/55",
+   "cost_per_run": 0.01009,
+   "cost_tasks": 55,
+   "median_seconds": 4.99,
+   "local": false
+  },
+  {
+   "id": "mistralai/ministral-8b-2512",
+   "score": "17/22",
+   "tuned_score": "50/55",
+   "cost_per_run": 0.00659,
+   "cost_tasks": 55,
+   "median_seconds": 2.25,
+   "local": false
+  },
+  {
+   "id": "z-ai/glm-4.7-flash",
+   "score": "17/22",
+   "tuned_score": "45/55",
+   "cost_per_run": 0.01764,
+   "cost_tasks": 55,
+   "median_seconds": 4.15,
+   "local": false
+  },
+  {
+   "id": "moonshotai/kimi-k2.5",
+   "score": "17/22",
+   "tuned_score": "51/55",
+   "cost_per_run": 0.0756,
+   "cost_tasks": 55,
+   "median_seconds": 8.59,
+   "local": false
+  },
+  {
+   "id": "anthropic/claude-haiku-4.5",
+   "score": "17/22",
+   "tuned_score": "49/55",
+   "cost_per_run": 0.30078,
+   "cost_tasks": 55,
+   "median_seconds": 3.04,
+   "local": false
+  },
+  {
+   "id": "LFM2.5-2.6B",
+   "score": "16/22",
+   "tuned_score": "39/55",
+   "cost_per_run": 0,
+   "cost_tasks": 55,
+   "median_seconds": 3.52,
+   "local": true
+  }
+ ],
+ "dropped": [
+  {
+   "id": "openai/gpt-oss-20b",
+   "score": "16/22",
+   "why": "16/22 held out, below the six kept"
+  },
+  {
+   "id": "qwen/qwen3.7-flash",
+   "score": "16/22",
+   "why": "16/22 held out, below the six kept"
+  },
+  {
+   "id": "google/gemini-3.1-flash-lite",
+   "score": "16/22",
+   "why": "16/22 held out, below the six kept"
+  },
+  {
+   "id": "deepseek/deepseek-v4-flash",
+   "score": "15/22",
+   "why": "15/22 held out, below the six kept"
+  },
+  {
+   "id": "anthropic/claude-3-haiku",
+   "score": "15/22",
+   "why": "15/22 held out, below the six kept"
+  },
+  {
+   "id": "google/gemini-2.5-flash-lite",
+   "score": "14/22",
+   "why": "14/22 held out, below the six kept"
+  },
+  {
+   "id": "Qwen3-4B",
+   "score": "12/22",
+   "why": "12/22 held out, below the six kept"
+  },
+  {
+   "id": "LFM2-1.2B-Tool",
+   "score": "3/22",
+   "why": "3/22 held out, below the six kept"
+  }
+ ]
+}

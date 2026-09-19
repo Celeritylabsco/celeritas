@@ -1,0 +1,18 @@
+# Swift build output. 141 MB of it, rebuilt by `swift build` in seconds.
+.build/
+app/.build/
+app/build/
+
+# Downloaded model weights. Gigabytes, fetched on demand by the app.
+*.gguf
+models/
+
+__pycache__/
+*.pyc
+.DS_Store
+.qodo/
+
+# Anything holding a credential. The benchmark reads its key from the
+# environment and never writes one down.
+.env
+.env.local

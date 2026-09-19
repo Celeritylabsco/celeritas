@@ -1,0 +1,24 @@
+<!-- Celeritas app icon. The lab mark, brackets around a block, in paper on cobalt.
+
+     Two rules are doing all the work here, and both were arrived at by rendering
+     candidates at 16 to 128 and looking:
+
+     1. The tile is Apple's macOS grid: an 824 square inset 100 on every side of a
+        1024 canvas, corner radius 185.4. Drawn edge to edge it sits proud of every
+        other app in the Dock.
+     2. Every bracket edge is a multiple of 64, so it lands on a whole pixel at 16,
+        32, 64, 128 and up. The earlier version was off grid and antialiased into
+        mush by 32. Opening the counters beats thickening the strokes: heavier
+        candidates filled in to a blob at small sizes. -->
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <rect x="100" y="100" width="824" height="824" rx="185.4" fill="#0047AB"/>
+  <g fill="#F4F1EA">
+    <rect x="192" y="256" width="64"  height="512"/>
+    <rect x="192" y="256" width="192" height="64"/>
+    <rect x="192" y="704" width="192" height="64"/>
+    <rect x="768" y="256" width="64"  height="512"/>
+    <rect x="640" y="256" width="192" height="64"/>
+    <rect x="640" y="704" width="192" height="64"/>
+    <rect x="448" y="416" width="128" height="192"/>
+  </g>
+</svg>
