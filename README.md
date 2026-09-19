@@ -2,11 +2,11 @@
 
 A launcher for the Mac. Press a key, type what you want, get an answer.
 
-Most of what you type never reaches a model. Token prices on any chain, coins,
-shares, currency, arithmetic, unit conversion, emoji and app names are answered
-on your machine from a file, in under a millisecond, for nothing. A model is
-asked only when the question needs one, and the row tells you which model is
-about to get it before it goes.
+Most of what you type never reaches a model. Token prices on Robinhood chain
+and Solana, coins, shares, currency, arithmetic, unit conversion, emoji and app
+names are answered on your machine from a file, in under a millisecond, for
+nothing. A model is asked only when the question needs one, and the row tells
+you which model is about to get it before it goes.
 
 ![The launcher](docs/media/01-launcher.png)
 
@@ -128,10 +128,9 @@ tokens sit on it.
 Your Mac works all of this out on its own, from a table already on disk, in
 under a millisecond, with no model and no key involved.
 
-### Any token, on any chain
+### Any token on Robinhood or Solana
 
-Paste a contract address, Robinhood or Solana or anywhere else, or type the name
-of one you follow.
+Paste a contract address from either chain, or type the name of one you follow.
 
 ![A token](docs/media/08-token.png)
 
