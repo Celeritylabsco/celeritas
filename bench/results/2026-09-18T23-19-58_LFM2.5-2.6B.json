@@ -1,0 +1,263 @@
+{
+ "model": "LFM2.5-2.6B",
+ "started_utc": "2026-09-18T23:19:58+00:00",
+ "wall_seconds": 45.9,
+ "base": "http://127.0.0.1:8138/v1",
+ "task_count": 13,
+ "trials": 1,
+ "passed": 9,
+ "total": 13,
+ "accuracy": 0.692,
+ "mean_seconds": 3.52,
+ "median_seconds": 3.01,
+ "total_cost": 0,
+ "max_turns": 5,
+ "by_capability": {
+  "calendar": "2/2",
+  "files": "1/1",
+  "mail": "0/1",
+  "multi_tool": "0/1",
+  "rejection": "0/2",
+  "reminders": "1/1",
+  "settings": "2/2",
+  "status": "3/3"
+ },
+ "machine_before": {
+  "chip": "Apple M4 Pro",
+  "free_mb": 125,
+  "compressed_mb": 9772,
+  "swap": "total = 31744.00M  used = 30955.56M  free = 788.44M  (encrypted)"
+ },
+ "machine_after": {
+  "chip": "Apple M4 Pro",
+  "free_mb": 60,
+  "compressed_mb": 8902,
+  "swap": "total = 31744.00M  used = 30811.56M  free = 932.44M  (encrypted)"
+ },
+ "rows": [
+  {
+   "trial": 0,
+   "id": "sys-battery",
+   "capability": "status",
+   "phrasing": "question",
+   "depth": "literal",
+   "prompt": "what's my battery",
+   "passed": true,
+   "calls": [
+    "battery_status"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 2.42,
+   "cost": 0.0,
+   "error": null
+  },
+  {
+   "trial": 0,
+   "id": "sys-disk",
+   "capability": "status",
+   "phrasing": "colloquial",
+   "depth": "semantic",
+   "prompt": "how much space have i got left",
+   "passed": true,
+   "calls": [
+    "disk_free"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 3.07,
+   "cost": 0.0,
+   "error": null
+  },
+  {
+   "trial": 0,
+   "id": "sys-volume",
+   "capability": "settings",
+   "phrasing": "imperative",
+   "depth": "literal",
+   "prompt": "turn the volume down to 20",
+   "passed": true,
+   "calls": [
+    "set_volume"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 1.46,
+   "cost": 0.0,
+   "error": null
+  },
+  {
+   "trial": 0,
+   "id": "sys-dark",
+   "capability": "settings",
+   "phrasing": "colloquial",
+   "depth": "semantic",
+   "prompt": "make it dark",
+   "passed": true,
+   "calls": [
+    "set_dark_mode"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 1.5,
+   "cost": 0.0,
+   "error": null
+  },
+  {
+   "trial": 0,
+   "id": "cal-read",
+   "capability": "calendar",
+   "phrasing": "question",
+   "depth": "semantic",
+   "prompt": "am i free tomorrow",
+   "passed": true,
+   "calls": [
+    "list_events"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 3.01,
+   "cost": 0.0,
+   "error": null
+  },
+  {
+   "trial": 0,
+   "id": "cal-create",
+   "capability": "calendar",
+   "phrasing": "imperative",
+   "depth": "literal",
+   "prompt": "put a meeting in for friday at 3 called standup",
+   "passed": true,
+   "calls": [
+    "create_event"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 3.72,
+   "cost": 0.0,
+   "error": null
+  },
+  {
+   "trial": 0,
+   "id": "rem-create",
+   "capability": "reminders",
+   "phrasing": "imperative",
+   "depth": "literal",
+   "prompt": "remind me to call the bank tomorrow",
+   "passed": true,
+   "calls": [
+    "create_reminder"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 2.37,
+   "cost": 0.0,
+   "error": null
+  },
+  {
+   "trial": 0,
+   "id": "file-find",
+   "capability": "files",
+   "phrasing": "imperative",
+   "depth": "semantic",
+   "prompt": "find my invoice pdf",
+   "passed": true,
+   "calls": [
+    "find_file",
+    "open_file"
+   ],
+   "turns": 3,
+   "stopped": "answered",
+   "seconds": 2.67,
+   "cost": 0.0,
+   "error": null
+  },
+  {
+   "trial": 0,
+   "id": "sys-slow",
+   "capability": "status",
+   "phrasing": "question",
+   "depth": "semantic",
+   "prompt": "why is my mac so slow",
+   "passed": true,
+   "calls": [
+    "battery_status",
+    "memory_pressure",
+    "disk_free"
+   ],
+   "turns": 4,
+   "stopped": "answered",
+   "seconds": 8.21,
+   "cost": 0.0,
+   "error": null
+  },
+  {
+   "trial": 0,
+   "id": "mail-send",
+   "capability": "mail",
+   "phrasing": "imperative",
+   "depth": "literal",
+   "prompt": "email daisy@example.com the agenda, say it starts at 10",
+   "passed": false,
+   "calls": [
+    "search_notes",
+    "search_mail",
+    "read_note",
+    "search_mail",
+    "read_note"
+   ],
+   "turns": 5,
+   "stopped": "max_turns",
+   "seconds": 5.82,
+   "cost": 0.0,
+   "error": null
+  },
+  {
+   "trial": 0,
+   "id": "rej-offtopic",
+   "capability": "rejection",
+   "phrasing": "imperative",
+   "depth": "boundary",
+   "prompt": "order me a pizza",
+   "passed": false,
+   "calls": [],
+   "turns": 1,
+   "stopped": "answered",
+   "seconds": 2.83,
+   "cost": 0.0,
+   "error": null
+  },
+  {
+   "trial": 0,
+   "id": "rej-pronoun",
+   "capability": "rejection",
+   "phrasing": "imperative",
+   "depth": "boundary",
+   "prompt": "turn it on",
+   "passed": false,
+   "calls": [],
+   "turns": 1,
+   "stopped": "answered",
+   "seconds": 3.87,
+   "cost": 0.0,
+   "error": null
+  },
+  {
+   "trial": 0,
+   "id": "chain-two",
+   "capability": "multi_tool",
+   "phrasing": "imperative",
+   "depth": "semantic",
+   "prompt": "check what's on my calendar tomorrow and remind me to prepare for it tonight",
+   "passed": false,
+   "calls": [
+    "list_events"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 4.87,
+   "cost": 0.0,
+   "error": null
+  }
+ ]
+}

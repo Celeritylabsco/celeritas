@@ -1,0 +1,253 @@
+{
+ "model": "LFM2.5-1.2B-Instruct",
+ "started_utc": "2026-09-18T23:25:01+00:00",
+ "wall_seconds": 12.6,
+ "base": "http://127.0.0.1:8138/v1",
+ "task_count": 13,
+ "trials": 1,
+ "passed": 7,
+ "total": 13,
+ "accuracy": 0.538,
+ "mean_seconds": 0.97,
+ "median_seconds": 0.52,
+ "total_cost": 0,
+ "max_turns": 5,
+ "by_capability": {
+  "calendar": "1/2",
+  "files": "1/1",
+  "mail": "0/1",
+  "multi_tool": "0/1",
+  "rejection": "0/2",
+  "reminders": "1/1",
+  "settings": "2/2",
+  "status": "2/3"
+ },
+ "machine_before": {
+  "chip": "Apple M4 Pro",
+  "free_mb": 56,
+  "compressed_mb": 10054,
+  "swap": "total = 31744.00M  used = 30350.00M  free = 1394.00M  (encrypted)"
+ },
+ "machine_after": {
+  "chip": "Apple M4 Pro",
+  "free_mb": 280,
+  "compressed_mb": 10297,
+  "swap": "total = 31744.00M  used = 30302.00M  free = 1442.00M  (encrypted)"
+ },
+ "rows": [
+  {
+   "trial": 0,
+   "id": "sys-battery",
+   "capability": "status",
+   "phrasing": "question",
+   "depth": "literal",
+   "prompt": "what's my battery",
+   "passed": true,
+   "calls": [
+    "battery_status"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 0.92,
+   "cost": 0.0,
+   "error": null
+  },
+  {
+   "trial": 0,
+   "id": "sys-disk",
+   "capability": "status",
+   "phrasing": "colloquial",
+   "depth": "semantic",
+   "prompt": "how much space have i got left",
+   "passed": true,
+   "calls": [
+    "disk_free"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 0.36,
+   "cost": 0.0,
+   "error": null
+  },
+  {
+   "trial": 0,
+   "id": "sys-volume",
+   "capability": "settings",
+   "phrasing": "imperative",
+   "depth": "literal",
+   "prompt": "turn the volume down to 20",
+   "passed": true,
+   "calls": [
+    "set_volume",
+    "set_volume"
+   ],
+   "turns": 3,
+   "stopped": "answered",
+   "seconds": 0.44,
+   "cost": 0.0,
+   "error": null
+  },
+  {
+   "trial": 0,
+   "id": "sys-dark",
+   "capability": "settings",
+   "phrasing": "colloquial",
+   "depth": "semantic",
+   "prompt": "make it dark",
+   "passed": true,
+   "calls": [
+    "set_dark_mode"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 0.31,
+   "cost": 0.0,
+   "error": null
+  },
+  {
+   "trial": 0,
+   "id": "cal-read",
+   "capability": "calendar",
+   "phrasing": "question",
+   "depth": "semantic",
+   "prompt": "am i free tomorrow",
+   "passed": false,
+   "calls": [],
+   "turns": 1,
+   "stopped": "answered",
+   "seconds": 2.09,
+   "cost": 0.0,
+   "error": null
+  },
+  {
+   "trial": 0,
+   "id": "cal-create",
+   "capability": "calendar",
+   "phrasing": "imperative",
+   "depth": "literal",
+   "prompt": "put a meeting in for friday at 3 called standup",
+   "passed": true,
+   "calls": [
+    "create_event"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 0.52,
+   "cost": 0.0,
+   "error": null
+  },
+  {
+   "trial": 0,
+   "id": "rem-create",
+   "capability": "reminders",
+   "phrasing": "imperative",
+   "depth": "literal",
+   "prompt": "remind me to call the bank tomorrow",
+   "passed": true,
+   "calls": [
+    "create_reminder"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 0.42,
+   "cost": 0.0,
+   "error": null
+  },
+  {
+   "trial": 0,
+   "id": "file-find",
+   "capability": "files",
+   "phrasing": "imperative",
+   "depth": "semantic",
+   "prompt": "find my invoice pdf",
+   "passed": true,
+   "calls": [
+    "find_file"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 0.38,
+   "cost": 0.0,
+   "error": null
+  },
+  {
+   "trial": 0,
+   "id": "sys-slow",
+   "capability": "status",
+   "phrasing": "question",
+   "depth": "semantic",
+   "prompt": "why is my mac so slow",
+   "passed": false,
+   "calls": [
+    "read_note"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 0.52,
+   "cost": 0.0,
+   "error": null
+  },
+  {
+   "trial": 0,
+   "id": "mail-send",
+   "capability": "mail",
+   "phrasing": "imperative",
+   "depth": "literal",
+   "prompt": "email daisy@example.com the agenda, say it starts at 10",
+   "passed": false,
+   "calls": [],
+   "turns": 1,
+   "stopped": "answered",
+   "seconds": 2.05,
+   "cost": 0.0,
+   "error": null
+  },
+  {
+   "trial": 0,
+   "id": "rej-offtopic",
+   "capability": "rejection",
+   "phrasing": "imperative",
+   "depth": "boundary",
+   "prompt": "order me a pizza",
+   "passed": false,
+   "calls": [],
+   "turns": 1,
+   "stopped": "answered",
+   "seconds": 2.05,
+   "cost": 0.0,
+   "error": null
+  },
+  {
+   "trial": 0,
+   "id": "rej-pronoun",
+   "capability": "rejection",
+   "phrasing": "imperative",
+   "depth": "boundary",
+   "prompt": "turn it on",
+   "passed": false,
+   "calls": [],
+   "turns": 1,
+   "stopped": "answered",
+   "seconds": 2.04,
+   "cost": 0.0,
+   "error": null
+  },
+  {
+   "trial": 0,
+   "id": "chain-two",
+   "capability": "multi_tool",
+   "phrasing": "imperative",
+   "depth": "semantic",
+   "prompt": "check what's on my calendar tomorrow and remind me to prepare for it tonight",
+   "passed": false,
+   "calls": [
+    "list_events"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 0.46,
+   "cost": 0.0,
+   "error": null
+  }
+ ]
+}

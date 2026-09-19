@@ -1,0 +1,309 @@
+{
+  "about": "Which path answers a query, and whether the answer is right.",
+  "why": [
+    "The tool-use suite measures a model. This measures the launcher.",
+    "Almost everything typed into Celeritas never reaches a model: arithmetic, units, currency, share and coin prices, emoji, app names. Our own code decides which of those handles a query, and that decision is invisible until it is wrong.",
+    "It has been wrong twice in one day. 'am i free today' was taken by the clock because the trigger word 'today' appeared at the end. '1 eth to sol' was passed to a model, which answered 66 from prices it half remembered when the real answer was 23.6.",
+    "Both are the same failure: a query went down the wrong path. One showed a wrong section, the other spent money to be wrong."
+  ],
+  "fields": {
+    "query": "what someone types",
+    "section": "the section that must appear",
+    "forbid": "sections that must not appear",
+    "contains": "text the answer must contain, for the cases where correctness is checkable",
+    "note": "why this case exists, when it is not obvious"
+  },
+  "cases": [
+    {
+      "query": "5 * 12",
+      "section": "Calculator",
+      "contains": "60"
+    },
+    {
+      "query": "what is 2 + 2",
+      "section": "Calculator",
+      "contains": "4"
+    },
+    {
+      "query": "(3+4)*2",
+      "section": "Calculator",
+      "contains": "14"
+    },
+    {
+      "query": "2^10",
+      "section": "Calculator",
+      "contains": "1024"
+    },
+    {
+      "query": "20c",
+      "section": "Conversion",
+      "contains": "68"
+    },
+    {
+      "query": "100f",
+      "section": "Conversion",
+      "contains": "37.78"
+    },
+    {
+      "query": "5 km",
+      "section": "Conversion",
+      "contains": "3.1"
+    },
+    {
+      "query": "180 lb in kg",
+      "section": "Conversion",
+      "contains": "81.6"
+    },
+    {
+      "query": "2gb in mb",
+      "section": "Conversion",
+      "contains": "2,000"
+    },
+    {
+      "query": "90 mph in kph",
+      "section": "Conversion",
+      "contains": "144.8"
+    },
+    {
+      "query": "2h in min",
+      "section": "Conversion",
+      "contains": "120"
+    },
+    {
+      "query": "1 mile in m",
+      "section": "Conversion",
+      "contains": "1,609.34"
+    },
+    {
+      "query": "100 usd in eur",
+      "section": "Currency"
+    },
+    {
+      "query": "50 gbp to usd",
+      "section": "Currency"
+    },
+    {
+      "query": "20 chf jpy",
+      "section": "Currency"
+    },
+    {
+      "query": "100 usd in usd",
+      "forbid": [
+        "Currency"
+      ],
+      "note": "same currency both sides is not a conversion"
+    },
+    {
+      "query": "100 xyz in eur",
+      "forbid": [
+        "Currency"
+      ],
+      "note": "not a currency code"
+    },
+    {
+      "query": "btc",
+      "section": "Markets",
+      "contains": "BTC"
+    },
+    {
+      "query": "eth",
+      "section": "Markets",
+      "contains": "ETH"
+    },
+    {
+      "query": "bitcoin",
+      "section": "Markets",
+      "contains": "BTC"
+    },
+    {
+      "query": "aapl",
+      "section": "Markets",
+      "contains": "AAPL"
+    },
+    {
+      "query": "tesla",
+      "section": "Markets",
+      "contains": "TSLA"
+    },
+    {
+      "query": "nvda price",
+      "section": "Markets",
+      "contains": "NVDA"
+    },
+    {
+      "query": "$f",
+      "section": "Markets",
+      "contains": "F "
+    },
+    {
+      "query": "f",
+      "forbid": [
+        "Markets"
+      ],
+      "note": "a one letter ticker needs a dollar sign or the word price"
+    },
+    {
+      "query": "it",
+      "forbid": [
+        "Markets"
+      ],
+      "note": "IT is Gartner, and also a word"
+    },
+    {
+      "query": "1 eth to sol",
+      "section": "Markets",
+      "note": "a model answered this with 66 when the truth was 23.6"
+    },
+    {
+      "query": "0.5 btc in usd",
+      "section": "Markets"
+    },
+    {
+      "query": "2 eth in gbp",
+      "section": "Markets"
+    },
+    {
+      "query": "1 aapl in btc",
+      "section": "Markets"
+    },
+    {
+      "query": "3 miles in km",
+      "forbid": [
+        "Markets",
+        "Currency"
+      ],
+      "section": "Conversion",
+      "note": "units, not money"
+    },
+    {
+      "query": "fire",
+      "section": "Emoji",
+      "contains": "🔥"
+    },
+    {
+      "query": "rocket",
+      "section": "Emoji",
+      "contains": "🚀"
+    },
+    {
+      "query": ":tada:",
+      "section": "Emoji",
+      "contains": "🎉"
+    },
+    {
+      "query": "+1",
+      "section": "Emoji",
+      "contains": "👍"
+    },
+    {
+      "query": "red heart",
+      "section": "Emoji"
+    },
+    {
+      "query": "safari",
+      "forbid": [
+        "Emoji"
+      ],
+      "note": "an app name must not drag an emoji row along"
+    },
+    {
+      "query": "settings",
+      "forbid": [
+        "Emoji"
+      ]
+    },
+    {
+      "query": "safari",
+      "section": "Applications"
+    },
+    {
+      "query": "finder",
+      "section": "Applications"
+    },
+    {
+      "query": "settings",
+      "section": "Celeritas"
+    },
+    {
+      "query": "battery",
+      "section": "Actions"
+    },
+    {
+      "query": "disk space",
+      "section": "Actions"
+    },
+    {
+      "query": "wifi",
+      "section": "Actions"
+    },
+    {
+      "query": "am i free today",
+      "section": "Ask",
+      "forbid": [
+        "Actions",
+        "Calculator",
+        "Conversion"
+      ],
+      "note": "the clock took this on 19 Sep because it ends in 'today'. There is no calendar trigger, so any Actions row here is a false match."
+    },
+    {
+      "query": "am i free tomorrow",
+      "section": "Ask",
+      "forbid": [
+        "Actions"
+      ],
+      "note": "a calendar question genuinely needs the model, and the empty state says so with a grey dot"
+    },
+    {
+      "query": "what is the time",
+      "section": "Actions"
+    },
+    {
+      "query": "hello",
+      "forbid": [
+        "Calculator",
+        "Conversion",
+        "Currency",
+        "Markets",
+        "Emoji"
+      ]
+    },
+    {
+      "query": "what should i have for lunch",
+      "forbid": [
+        "Calculator",
+        "Conversion",
+        "Currency",
+        "Markets",
+        "Emoji"
+      ]
+    },
+    {
+      "query": "zzzz",
+      "forbid": [
+        "Calculator",
+        "Conversion",
+        "Currency",
+        "Markets",
+        "Emoji"
+      ]
+    },
+    {
+      "query": "$",
+      "forbid": [
+        "Markets"
+      ]
+    },
+    {
+      "query": "",
+      "forbid": [
+        "Calculator",
+        "Conversion",
+        "Currency",
+        "Markets",
+        "Emoji",
+        "Ask"
+      ]
+    }
+  ]
+}

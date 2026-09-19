@@ -1,0 +1,439 @@
+{
+ "model": "google/gemini-2.5-flash-lite",
+ "started_utc": "2026-09-19T13:43:23+00:00",
+ "wall_seconds": 52.5,
+ "base": "https://www.orbio.so/api/v1",
+ "prompt_variant": "",
+ "tool_choice": "auto",
+ "parallel": true,
+ "timings_valid": false,
+ "task_count": 22,
+ "split": "heldout",
+ "trials": 1,
+ "passed": 14,
+ "total": 22,
+ "accuracy": 0.636,
+ "mean_seconds": 2.38,
+ "median_seconds": 2.27,
+ "total_cost": 0.003297,
+ "max_turns": 5,
+ "by_capability": {
+  "calendar": "2/3",
+  "files": "1/3",
+  "mail": "2/3",
+  "multi_tool": "2/3",
+  "notes": "0/1",
+  "rejection": "1/2",
+  "reminders": "0/1",
+  "settings": "3/3",
+  "status": "3/3"
+ },
+ "machine_before": {
+  "chip": "Apple M4 Pro",
+  "free_mb": 48,
+  "compressed_mb": 9684,
+  "swap": "total = 27648.00M  used = 26292.06M  free = 1355.94M  (encrypted)"
+ },
+ "machine_after": {
+  "chip": "Apple M4 Pro",
+  "free_mb": 59,
+  "compressed_mb": 10760,
+  "swap": "total = 27648.00M  used = 26229.19M  free = 1418.81M  (encrypted)"
+ },
+ "rows": [
+  {
+   "trial": 0,
+   "id": "set-vol-q",
+   "capability": "settings",
+   "phrasing": "question",
+   "depth": "literal",
+   "prompt": "can you set the volume to 80",
+   "passed": true,
+   "calls": [
+    "set_volume"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 2.61,
+   "cost": 0.00010417,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "set-dark-col-held",
+   "capability": "settings",
+   "phrasing": "colloquial",
+   "depth": "semantic",
+   "prompt": "switch to the night look",
+   "passed": true,
+   "calls": [
+    "set_dark_mode"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 2.15,
+   "cost": 7.59e-05,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "sta-batt-imp-held",
+   "capability": "status",
+   "phrasing": "imperative",
+   "depth": "literal",
+   "prompt": "check the battery",
+   "passed": true,
+   "calls": [
+    "battery_status"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 2.56,
+   "cost": 0.0001682,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "sta-mem-col-held",
+   "capability": "status",
+   "phrasing": "colloquial",
+   "depth": "semantic",
+   "prompt": "everything's grinding to a halt",
+   "passed": true,
+   "calls": [
+    "memory_pressure"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 2.47,
+   "cost": 0.00015749999999999998,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "cal-create-held",
+   "capability": "calendar",
+   "phrasing": "implicit",
+   "depth": "semantic",
+   "prompt": "sam wants to meet monday morning, put it in the diary",
+   "passed": false,
+   "calls": [],
+   "turns": 1,
+   "stopped": "answered",
+   "seconds": 2.37,
+   "cost": 0.0002322,
+   "error": null,
+   "retries": 0
+  },
+  {
+   "trial": 0,
+   "id": "cal-read-held",
+   "capability": "calendar",
+   "phrasing": "colloquial",
+   "depth": "semantic",
+   "prompt": "what have i got on",
+   "passed": true,
+   "calls": [
+    "next_event"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 2.26,
+   "cost": 0.0001505,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "mail-send-held",
+   "capability": "mail",
+   "phrasing": "implicit",
+   "depth": "semantic",
+   "prompt": "daisy@example.com still needs the agenda",
+   "passed": true,
+   "calls": [
+    "send_email"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 2.56,
+   "cost": 0.0001693,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "mail-search-held",
+   "capability": "mail",
+   "phrasing": "question",
+   "depth": "semantic",
+   "prompt": "did anything come in about the statement",
+   "passed": true,
+   "calls": [
+    "search_mail"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 2.21,
+   "cost": 0.00015930000000000002,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "file-find-held",
+   "capability": "files",
+   "phrasing": "question",
+   "depth": "semantic",
+   "prompt": "have i got the meeting notes anywhere",
+   "passed": false,
+   "calls": [
+    "search_mail"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 2.21,
+   "cost": 0.00015700000000000002,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "file-large-held",
+   "capability": "files",
+   "phrasing": "implicit",
+   "depth": "semantic",
+   "prompt": "this disk is nearly full and i don't know why",
+   "passed": true,
+   "calls": [
+    "large_files"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 3.24,
+   "cost": 0.0002158,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "note-read-held",
+   "capability": "notes",
+   "phrasing": "implicit",
+   "depth": "semantic",
+   "prompt": "i can't remember what i needed from the shop",
+   "passed": false,
+   "calls": [
+    "search_mail"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 2.78,
+   "cost": 0.0001579,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "rem-create-held",
+   "capability": "reminders",
+   "phrasing": "implicit",
+   "depth": "semantic",
+   "prompt": "the car needs its mot next week",
+   "passed": false,
+   "calls": [],
+   "turns": 1,
+   "stopped": "answered",
+   "seconds": 1.1,
+   "cost": 8.41e-05,
+   "error": null,
+   "retries": 0
+  },
+  {
+   "trial": 0,
+   "id": "rej-impl-held",
+   "capability": "rejection",
+   "phrasing": "implicit",
+   "depth": "boundary",
+   "prompt": "sort it out for me",
+   "passed": false,
+   "calls": [],
+   "turns": 1,
+   "stopped": "answered",
+   "seconds": 0.99,
+   "cost": 8.19e-05,
+   "error": null,
+   "retries": 0
+  },
+  {
+   "trial": 0,
+   "id": "rej-unsupported-held",
+   "capability": "rejection",
+   "phrasing": "colloquial",
+   "depth": "boundary",
+   "prompt": "stick some music on",
+   "passed": true,
+   "calls": [
+    "intent_unclear"
+   ],
+   "turns": 1,
+   "stopped": "refused",
+   "seconds": 0.94,
+   "cost": 7.58e-05,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "multi-status-held",
+   "capability": "multi_tool",
+   "phrasing": "question",
+   "depth": "semantic",
+   "prompt": "is this thing about to run out of battery or disk",
+   "passed": true,
+   "calls": [
+    "battery_status",
+    "disk_free"
+   ],
+   "turns": 3,
+   "stopped": "answered",
+   "seconds": 3.59,
+   "cost": 0.00017139,
+   "error": null,
+   "retries": 2
+  },
+  {
+   "trial": 0,
+   "id": "multi-mail-held",
+   "capability": "multi_tool",
+   "phrasing": "implicit",
+   "depth": "semantic",
+   "prompt": "find my invoice and email it to sam@example.com",
+   "passed": false,
+   "calls": [
+    "find_file"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 2.29,
+   "cost": 0.0001582,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "set-loud-max-bnd",
+   "capability": "settings",
+   "phrasing": "colloquial",
+   "depth": "boundary",
+   "prompt": "turn it up as loud as it goes",
+   "passed": true,
+   "calls": [
+    "set_volume"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 1.91,
+   "cost": 8.896e-05,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "sta-full-bnd",
+   "capability": "status",
+   "phrasing": "implicit",
+   "depth": "boundary",
+   "prompt": "give me the full picture of this machine",
+   "passed": true,
+   "calls": [
+    "disk_free",
+    "memory_pressure",
+    "battery_status",
+    "wifi_status",
+    "top_processes"
+   ],
+   "turns": 5,
+   "stopped": "max_turns",
+   "seconds": 6.21,
+   "cost": 0.0003305,
+   "error": null,
+   "retries": 5
+  },
+  {
+   "trial": 0,
+   "id": "cal-cancel-all-bnd",
+   "capability": "calendar",
+   "phrasing": "imperative",
+   "depth": "boundary",
+   "prompt": "cancel everything",
+   "passed": true,
+   "calls": [
+    "intent_unclear"
+   ],
+   "turns": 1,
+   "stopped": "refused",
+   "seconds": 1.02,
+   "cost": 7.56e-05,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "mail-everyone-bnd",
+   "capability": "mail",
+   "phrasing": "imperative",
+   "depth": "boundary",
+   "prompt": "email everyone about the delay",
+   "passed": false,
+   "calls": [],
+   "turns": 1,
+   "stopped": "answered",
+   "seconds": 1.51,
+   "cost": 8.55e-05,
+   "error": null,
+   "retries": 0
+  },
+  {
+   "trial": 0,
+   "id": "file-tidy-bnd",
+   "capability": "files",
+   "phrasing": "colloquial",
+   "depth": "boundary",
+   "prompt": "tidy up my downloads",
+   "passed": false,
+   "calls": [
+    "find_file",
+    "find_file"
+   ],
+   "turns": 3,
+   "stopped": "answered",
+   "seconds": 3.44,
+   "cost": 0.0002391,
+   "error": null,
+   "retries": 2
+  },
+  {
+   "trial": 0,
+   "id": "multi-prep-bnd",
+   "capability": "multi_tool",
+   "phrasing": "implicit",
+   "depth": "boundary",
+   "prompt": "i have got a meeting soon, get me ready",
+   "passed": true,
+   "calls": [
+    "next_event"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 2.04,
+   "cost": 0.0001579,
+   "error": null,
+   "retries": 1
+  }
+ ]
+}

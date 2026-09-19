@@ -1,0 +1,799 @@
+{
+  "cases" : 52,
+  "routed" : 52,
+  "routing_accuracy" : 1,
+  "rows" : [
+    {
+      "answer" : "60  copy",
+      "correct" : true,
+      "expected" : "Calculator",
+      "forbid" : [
+
+      ],
+      "got" : [
+        "Calculator",
+        "Ask"
+      ],
+      "query" : "5 * 12",
+      "routed" : true,
+      "seconds" : 0.09963202476501465,
+      "wanted" : "60"
+    },
+    {
+      "answer" : "4  copy",
+      "correct" : true,
+      "expected" : "Calculator",
+      "forbid" : [
+
+      ],
+      "got" : [
+        "Calculator",
+        "Ask"
+      ],
+      "query" : "what is 2 + 2",
+      "routed" : true,
+      "seconds" : 0.007647037506103516,
+      "wanted" : "4"
+    },
+    {
+      "answer" : "14  copy",
+      "correct" : true,
+      "expected" : "Calculator",
+      "forbid" : [
+
+      ],
+      "got" : [
+        "Calculator",
+        "Ask"
+      ],
+      "query" : "(3+4)*2",
+      "routed" : true,
+      "seconds" : 0.007458925247192383,
+      "wanted" : "14"
+    },
+    {
+      "answer" : "1024  copy",
+      "correct" : true,
+      "expected" : "Calculator",
+      "forbid" : [
+
+      ],
+      "got" : [
+        "Calculator",
+        "Ask"
+      ],
+      "query" : "2^10",
+      "routed" : true,
+      "seconds" : 0.007401943206787109,
+      "wanted" : "1024"
+    },
+    {
+      "answer" : "68 °F  20 °C  =  68 °F",
+      "correct" : true,
+      "expected" : "Conversion",
+      "forbid" : [
+
+      ],
+      "got" : [
+        "Conversion",
+        "Ask"
+      ],
+      "query" : "20c",
+      "routed" : true,
+      "seconds" : 0.007706046104431152,
+      "wanted" : "68"
+    },
+    {
+      "answer" : "37.78 °C  100 °F  =  37.78 °C",
+      "correct" : true,
+      "expected" : "Conversion",
+      "forbid" : [
+
+      ],
+      "got" : [
+        "Conversion",
+        "Ask"
+      ],
+      "query" : "100f",
+      "routed" : true,
+      "seconds" : 0.007572054862976074,
+      "wanted" : "37.78"
+    },
+    {
+      "answer" : "3.11 mi  5 km  =  3.11 mi",
+      "correct" : true,
+      "expected" : "Conversion",
+      "forbid" : [
+
+      ],
+      "got" : [
+        "Conversion",
+        "Ask"
+      ],
+      "query" : "5 km",
+      "routed" : true,
+      "seconds" : 0.007816910743713379,
+      "wanted" : "3.1"
+    },
+    {
+      "answer" : "81.65 kg  180 lb  =  81.65 kg",
+      "correct" : true,
+      "expected" : "Conversion",
+      "forbid" : [
+
+      ],
+      "got" : [
+        "Conversion",
+        "Ask"
+      ],
+      "query" : "180 lb in kg",
+      "routed" : true,
+      "seconds" : 0.00801694393157959,
+      "wanted" : "81.6"
+    },
+    {
+      "answer" : "2,000 MB  2 GB  =  2,000 MB",
+      "correct" : true,
+      "expected" : "Conversion",
+      "forbid" : [
+
+      ],
+      "got" : [
+        "Conversion",
+        "Ask"
+      ],
+      "query" : "2gb in mb",
+      "routed" : true,
+      "seconds" : 0.007681012153625488,
+      "wanted" : "2,000"
+    },
+    {
+      "answer" : "144.84 km\/h  90 mph  =  144.84 km\/h",
+      "correct" : true,
+      "expected" : "Conversion",
+      "forbid" : [
+
+      ],
+      "got" : [
+        "Conversion",
+        "Ask"
+      ],
+      "query" : "90 mph in kph",
+      "routed" : true,
+      "seconds" : 0.007760047912597656,
+      "wanted" : "144.8"
+    },
+    {
+      "answer" : "120 min  2 h  =  120 min",
+      "correct" : true,
+      "expected" : "Conversion",
+      "forbid" : [
+
+      ],
+      "got" : [
+        "Markets",
+        "Conversion",
+        "Ask"
+      ],
+      "query" : "2h in min",
+      "routed" : true,
+      "seconds" : 0.01211404800415039,
+      "wanted" : "120"
+    },
+    {
+      "answer" : "1,609.34 m  1 mi  =  1,609.34 m",
+      "correct" : true,
+      "expected" : "Conversion",
+      "forbid" : [
+
+      ],
+      "got" : [
+        "Conversion",
+        "Ask"
+      ],
+      "query" : "1 mile in m",
+      "routed" : true,
+      "seconds" : 0.008839011192321777,
+      "wanted" : "1,609.34"
+    },
+    {
+      "answer" : "86.99 EUR  rate from 20 Sep",
+      "expected" : "Currency",
+      "forbid" : [
+
+      ],
+      "got" : [
+        "Currency",
+        "Ask"
+      ],
+      "query" : "100 usd in eur",
+      "routed" : true,
+      "seconds" : 0.00822901725769043
+    },
+    {
+      "answer" : "66.95 USD  rate from 20 Sep",
+      "expected" : "Currency",
+      "forbid" : [
+
+      ],
+      "got" : [
+        "Currency",
+        "Ask"
+      ],
+      "query" : "50 gbp to usd",
+      "routed" : true,
+      "seconds" : 0.007967114448547363
+    },
+    {
+      "answer" : "3,800.9 JPY  rate from 20 Sep",
+      "expected" : "Currency",
+      "forbid" : [
+
+      ],
+      "got" : [
+        "Currency",
+        "Ask"
+      ],
+      "query" : "20 chf jpy",
+      "routed" : true,
+      "seconds" : 0.007715940475463867
+    },
+    {
+      "forbid" : [
+        "Currency"
+      ],
+      "got" : [
+        "Ask"
+      ],
+      "note" : "same currency both sides is not a conversion",
+      "query" : "100 usd in usd",
+      "routed" : true,
+      "seconds" : 0.0074950456619262695
+    },
+    {
+      "forbid" : [
+        "Currency"
+      ],
+      "got" : [
+        "Markets",
+        "Ask"
+      ],
+      "note" : "not a currency code",
+      "query" : "100 xyz in eur",
+      "routed" : true,
+      "seconds" : 0.0073320865631103516
+    },
+    {
+      "answer" : "BTC  81,200.01 USD  +0.12%  Bitcoin, live 16:30",
+      "correct" : true,
+      "expected" : "Markets",
+      "forbid" : [
+
+      ],
+      "got" : [
+        "Markets",
+        "Applications",
+        "Ask"
+      ],
+      "query" : "btc",
+      "routed" : true,
+      "seconds" : 0.007504940032958984,
+      "wanted" : "BTC"
+    },
+    {
+      "answer" : "ETH  2,630.76 USD  -0.04%  Ethereum, live 16:30",
+      "correct" : true,
+      "expected" : "Markets",
+      "forbid" : [
+
+      ],
+      "got" : [
+        "Markets",
+        "Applications",
+        "Ask"
+      ],
+      "query" : "eth",
+      "routed" : true,
+      "seconds" : 0.007346034049987793,
+      "wanted" : "ETH"
+    },
+    {
+      "answer" : "BTC  81,200.01 USD  +0.12%  Bitcoin, live 16:30",
+      "correct" : true,
+      "expected" : "Markets",
+      "forbid" : [
+
+      ],
+      "got" : [
+        "Markets",
+        "Ask"
+      ],
+      "query" : "bitcoin",
+      "routed" : true,
+      "seconds" : 0.008365035057067871,
+      "wanted" : "BTC"
+    },
+    {
+      "answer" : "AAPL  336.13  -0.26%  Apple Inc., close 18 Sep",
+      "correct" : true,
+      "expected" : "Markets",
+      "forbid" : [
+
+      ],
+      "got" : [
+        "Markets",
+        "Applications",
+        "Ask"
+      ],
+      "query" : "aapl",
+      "routed" : true,
+      "seconds" : 0.007851958274841309,
+      "wanted" : "AAPL"
+    },
+    {
+      "answer" : "TSLA  364.27  -0.53%  Tesla, Inc., close 18 Sep",
+      "correct" : true,
+      "expected" : "Markets",
+      "forbid" : [
+
+      ],
+      "got" : [
+        "Markets",
+        "Ask"
+      ],
+      "query" : "tesla",
+      "routed" : true,
+      "seconds" : 0.007740974426269531,
+      "wanted" : "TSLA"
+    },
+    {
+      "answer" : "NVDA  222.27  +1.34%  Nvidia Corp, close 18 Sep",
+      "correct" : true,
+      "expected" : "Markets",
+      "forbid" : [
+
+      ],
+      "got" : [
+        "Markets",
+        "Ask"
+      ],
+      "query" : "nvda price",
+      "routed" : true,
+      "seconds" : 0.007550954818725586,
+      "wanted" : "NVDA"
+    },
+    {
+      "answer" : "F  13.21  -2.94%  Ford Motor Company, close 18 Sep",
+      "correct" : true,
+      "expected" : "Markets",
+      "forbid" : [
+
+      ],
+      "got" : [
+        "Markets",
+        "Ask"
+      ],
+      "query" : "$f",
+      "routed" : true,
+      "seconds" : 0.007431983947753906,
+      "wanted" : "F "
+    },
+    {
+      "forbid" : [
+        "Markets"
+      ],
+      "got" : [
+        "Applications",
+        "Ask"
+      ],
+      "note" : "a one letter ticker needs a dollar sign or the word price",
+      "query" : "f",
+      "routed" : true,
+      "seconds" : 0.0009731054306030273
+    },
+    {
+      "forbid" : [
+        "Markets"
+      ],
+      "got" : [
+        "Applications",
+        "Ask"
+      ],
+      "note" : "IT is Gartner, and also a word",
+      "query" : "it",
+      "routed" : true,
+      "seconds" : 0.007637977600097656
+    },
+    {
+      "answer" : "1 ETH  =  23.6282 SOL  live 16:30",
+      "expected" : "Markets",
+      "forbid" : [
+
+      ],
+      "got" : [
+        "Markets",
+        "Ask"
+      ],
+      "note" : "a model answered this with 66 when the truth was 23.6",
+      "query" : "1 eth to sol",
+      "routed" : true,
+      "seconds" : 0.007413983345031738
+    },
+    {
+      "answer" : "0.5 BTC  =  40,600 USD  rate 20 Sep",
+      "expected" : "Markets",
+      "forbid" : [
+
+      ],
+      "got" : [
+        "Markets",
+        "Ask"
+      ],
+      "query" : "0.5 btc in usd",
+      "routed" : true,
+      "seconds" : 0.007474064826965332
+    },
+    {
+      "answer" : "2 ETH  =  3,929.57 GBP  rate 20 Sep",
+      "expected" : "Markets",
+      "forbid" : [
+
+      ],
+      "got" : [
+        "Markets",
+        "Ask"
+      ],
+      "query" : "2 eth in gbp",
+      "routed" : true,
+      "seconds" : 0.007525920867919922
+    },
+    {
+      "answer" : "1 AAPL  =  0.00414 BTC  close 18 Sep",
+      "expected" : "Markets",
+      "forbid" : [
+
+      ],
+      "got" : [
+        "Markets",
+        "Ask"
+      ],
+      "query" : "1 aapl in btc",
+      "routed" : true,
+      "seconds" : 0.007501006126403809
+    },
+    {
+      "answer" : "4.83 km  3 mi  =  4.83 km",
+      "expected" : "Conversion",
+      "forbid" : [
+        "Markets",
+        "Currency"
+      ],
+      "got" : [
+        "Conversion",
+        "Ask"
+      ],
+      "note" : "units, not money",
+      "query" : "3 miles in km",
+      "routed" : true,
+      "seconds" : 0.007521986961364746
+    },
+    {
+      "answer" : "🔥   fire  copy | 🚒   fire engine  copy | 🧯   fire extinguisher  copy | ❤️‍🔥   heart on fire  copy",
+      "correct" : true,
+      "expected" : "Emoji",
+      "forbid" : [
+
+      ],
+      "got" : [
+        "Emoji",
+        "Applications",
+        "Ask"
+      ],
+      "query" : "fire",
+      "routed" : true,
+      "seconds" : 0.007455110549926758,
+      "wanted" : "🔥"
+    },
+    {
+      "answer" : "🚀   rocket  copy",
+      "correct" : true,
+      "expected" : "Emoji",
+      "forbid" : [
+
+      ],
+      "got" : [
+        "Emoji",
+        "Ask"
+      ],
+      "query" : "rocket",
+      "routed" : true,
+      "seconds" : 0.007560014724731445,
+      "wanted" : "🚀"
+    },
+    {
+      "answer" : "🎉   party popper  copy",
+      "correct" : true,
+      "expected" : "Emoji",
+      "forbid" : [
+
+      ],
+      "got" : [
+        "Emoji",
+        "Ask"
+      ],
+      "query" : ":tada:",
+      "routed" : true,
+      "seconds" : 0.007315993309020996,
+      "wanted" : "🎉"
+    },
+    {
+      "answer" : "👍   thumbs up  copy",
+      "correct" : true,
+      "expected" : "Emoji",
+      "forbid" : [
+
+      ],
+      "got" : [
+        "Emoji",
+        "Ask"
+      ],
+      "query" : "+1",
+      "routed" : true,
+      "seconds" : 0.007297992706298828,
+      "wanted" : "👍"
+    },
+    {
+      "answer" : "❤️   red heart  copy",
+      "expected" : "Emoji",
+      "forbid" : [
+
+      ],
+      "got" : [
+        "Emoji",
+        "Ask"
+      ],
+      "query" : "red heart",
+      "routed" : true,
+      "seconds" : 0.007309079170227051
+    },
+    {
+      "forbid" : [
+        "Emoji"
+      ],
+      "got" : [
+        "Applications",
+        "Ask"
+      ],
+      "note" : "an app name must not drag an emoji row along",
+      "query" : "safari",
+      "routed" : true,
+      "seconds" : 0.007634997367858887
+    },
+    {
+      "forbid" : [
+        "Emoji"
+      ],
+      "got" : [
+        "Applications",
+        "Celeritas",
+        "Ask"
+      ],
+      "query" : "settings",
+      "routed" : true,
+      "seconds" : 0.008149027824401855
+    },
+    {
+      "answer" : "Safari  Application",
+      "expected" : "Applications",
+      "forbid" : [
+
+      ],
+      "got" : [
+        "Applications",
+        "Ask"
+      ],
+      "query" : "safari",
+      "routed" : true,
+      "seconds" : 0.007534980773925781
+    },
+    {
+      "answer" : "Finder  Application | CalendarFileHandler  Application | FolderActionsDispatcher  Application",
+      "expected" : "Applications",
+      "forbid" : [
+
+      ],
+      "got" : [
+        "Applications",
+        "Ask"
+      ],
+      "query" : "finder",
+      "routed" : true,
+      "seconds" : 0.007391929626464844
+    },
+    {
+      "answer" : "Settings  command ⌘,",
+      "expected" : "Celeritas",
+      "forbid" : [
+
+      ],
+      "got" : [
+        "Applications",
+        "Celeritas",
+        "Ask"
+      ],
+      "query" : "settings",
+      "routed" : true,
+      "seconds" : 0.007259964942932129
+    },
+    {
+      "answer" : "Battery level  System",
+      "expected" : "Actions",
+      "forbid" : [
+
+      ],
+      "got" : [
+        "Emoji",
+        "Actions",
+        "Ask"
+      ],
+      "query" : "battery",
+      "routed" : true,
+      "seconds" : 0.007796049118041992
+    },
+    {
+      "answer" : "Free disk space  System",
+      "expected" : "Actions",
+      "forbid" : [
+
+      ],
+      "got" : [
+        "Actions",
+        "Ask"
+      ],
+      "query" : "disk space",
+      "routed" : true,
+      "seconds" : 0.0073699951171875
+    },
+    {
+      "answer" : "Current wifi network  System",
+      "expected" : "Actions",
+      "forbid" : [
+
+      ],
+      "got" : [
+        "Applications",
+        "Actions",
+        "Ask"
+      ],
+      "query" : "wifi",
+      "routed" : true,
+      "seconds" : 0.007158994674682617
+    },
+    {
+      "answer" : "am i free today  bench",
+      "expected" : "Ask",
+      "forbid" : [
+        "Actions",
+        "Calculator",
+        "Conversion"
+      ],
+      "got" : [
+        "Ask"
+      ],
+      "note" : "the clock took this on 19 Sep because it ends in 'today'. There is no calendar trigger, so any Actions row here is a false match.",
+      "query" : "am i free today",
+      "routed" : true,
+      "seconds" : 0.0075190067291259766
+    },
+    {
+      "answer" : "am i free tomorrow  bench",
+      "expected" : "Ask",
+      "forbid" : [
+        "Actions"
+      ],
+      "got" : [
+        "Ask"
+      ],
+      "note" : "a calendar question genuinely needs the model, and the empty state says so with a grey dot",
+      "query" : "am i free tomorrow",
+      "routed" : true,
+      "seconds" : 0.007603049278259277
+    },
+    {
+      "answer" : "Date and time  System",
+      "expected" : "Actions",
+      "forbid" : [
+
+      ],
+      "got" : [
+        "Actions",
+        "Ask"
+      ],
+      "query" : "what is the time",
+      "routed" : true,
+      "seconds" : 0.007355093955993652
+    },
+    {
+      "forbid" : [
+        "Calculator",
+        "Conversion",
+        "Currency",
+        "Markets",
+        "Emoji"
+      ],
+      "got" : [
+        "Ask"
+      ],
+      "query" : "hello",
+      "routed" : true,
+      "seconds" : 0.007349967956542969
+    },
+    {
+      "forbid" : [
+        "Calculator",
+        "Conversion",
+        "Currency",
+        "Markets",
+        "Emoji"
+      ],
+      "got" : [
+        "Ask"
+      ],
+      "query" : "what should i have for lunch",
+      "routed" : true,
+      "seconds" : 0.007413029670715332
+    },
+    {
+      "forbid" : [
+        "Calculator",
+        "Conversion",
+        "Currency",
+        "Markets",
+        "Emoji"
+      ],
+      "got" : [
+        "Ask"
+      ],
+      "query" : "zzzz",
+      "routed" : true,
+      "seconds" : 0.007465958595275879
+    },
+    {
+      "forbid" : [
+        "Markets"
+      ],
+      "got" : [
+        "Ask"
+      ],
+      "query" : "$",
+      "routed" : true,
+      "seconds" : 0.0009379386901855469
+    },
+    {
+      "forbid" : [
+        "Calculator",
+        "Conversion",
+        "Currency",
+        "Markets",
+        "Emoji",
+        "Ask"
+      ],
+      "got" : [
+
+      ],
+      "query" : "",
+      "routed" : true,
+      "seconds" : 1.0013580322265625e-05
+    }
+  ],
+  "started_utc" : "2026-09-19T13:38:01Z",
+  "suite" : "routing",
+  "tables" : {
+    "crypto" : true,
+    "markets" : true,
+    "rates" : true
+  },
+  "value_accuracy" : 1,
+  "value_checked" : 23,
+  "value_correct" : 23
+}

@@ -1,0 +1,312 @@
+[
+  {
+    "name": "intent_unclear",
+    "app": "None",
+    "destructive": false,
+    "description": "Call this instead of answering in text when the request is: ambiguous (could mean several different actions), off_topic (not about controlling this Mac), incomplete (no target named, such as 'turn it on'), or unsupported (refers to something this Mac control set cannot do). Pass one of: ambiguous, off_topic, incomplete, unsupported.",
+    "params": {
+      "reason": "string"
+    },
+    "script": "return \"unclear: {reason}\""
+  },
+  {
+    "name": "list_events",
+    "app": "Calendar",
+    "destructive": false,
+    "description": "List calendar events for a given day.",
+    "params": {
+      "day": "date"
+    },
+    "script": "set d to (current date)\nset year of d to {day_y}\nset month of d to {day_mo}\nset day of d to {day_d}\nset time of d to 0\nset e to d + (1 * days)\ntell application \"Calendar\"\n  set out to \"\"\n  repeat with c in calendars\n    repeat with ev in (every event of c whose start date is greater than or equal to d and start date is less than e)\n      set out to out & (summary of ev) & \" at \" & (time string of (start date of ev)) & linefeed\n    end repeat\n  end repeat\nend tell\nif out is \"\" then return \"no events\"\nreturn out"
+  },
+  {
+    "name": "create_event",
+    "app": "Calendar",
+    "destructive": false,
+    "description": "Create a calendar event at a given date and time. Default length is one hour.",
+    "params": {
+      "title": "string",
+      "start": "date",
+      "minutes": "integer"
+    },
+    "script": "set s to (current date)\nset year of s to {start_y}\nset month of s to {start_mo}\nset day of s to {start_d}\nset time of s to ({start_h} * hours) + ({start_mi} * minutes)\nset e to s + ({minutes} * minutes)\ntell application \"Calendar\"\n  tell calendar 1\n    make new event with properties {summary:\"{title}\", start date:s, end date:e}\n  end tell\nend tell\nreturn \"created\""
+  },
+  {
+    "name": "next_event",
+    "app": "Calendar",
+    "destructive": false,
+    "description": "Report the next upcoming calendar event.",
+    "params": {},
+    "script": "set n to current date\nset horizon to n + (14 * days)\ntell application \"Calendar\"\n  set best to missing value\n  repeat with c in calendars\n    repeat with ev in (every event of c whose start date is greater than n and start date is less than horizon)\n      if best is missing value or (start date of ev) < (start date of best) then set best to ev\n    end repeat\n  end repeat\n  if best is missing value then return \"nothing in the next two weeks\"\n  return (summary of best) & \" at \" & ((start date of best) as text)\nend tell"
+  },
+  {
+    "name": "delete_event",
+    "app": "Calendar",
+    "destructive": true,
+    "description": "Delete a calendar event by title on a given day. DESTRUCTIVE.",
+    "params": {
+      "title": "string",
+      "day": "date"
+    },
+    "script": "set d to (current date)\nset year of d to {day_y}\nset month of d to {day_mo}\nset day of d to {day_d}\nset time of d to 0\nset e to d + (1 * days)\ntell application \"Calendar\"\n  set n to 0\n  repeat with c in calendars\n    repeat with ev in (every event of c whose start date is greater than or equal to d and start date is less than e and summary contains \"{title}\")\n      delete ev\n      set n to n + 1\n    end repeat\n  end repeat\nend tell\nreturn \"deleted \" & n"
+  },
+  {
+    "name": "send_email",
+    "app": "Mail",
+    "destructive": false,
+    "description": "Compose and send an email to one recipient.",
+    "params": {
+      "to": "string",
+      "subject": "string",
+      "body": "string"
+    },
+    "script": "tell application \"Mail\"\n  set m to make new outgoing message with properties {subject:\"{subject}\", content:\"{body}\", visible:false}\n  tell m to make new to recipient at end of to recipients with properties {address:\"{to}\"}\n  send m\nend tell\nreturn \"sent\""
+  },
+  {
+    "name": "unread_count",
+    "app": "Mail",
+    "destructive": false,
+    "description": "Report how many unread messages are in the inbox.",
+    "params": {},
+    "script": "tell application \"Mail\"\n  check for new mail\n  return (count of (messages of inbox whose read status is false)) as text\nend tell"
+  },
+  {
+    "name": "list_recent_mail",
+    "app": "Mail",
+    "destructive": false,
+    "description": "List the most recent messages in the inbox, newest first.",
+    "params": {
+      "limit": "integer"
+    },
+    "script": "tell application \"Mail\"\n  set out to \"\"\n  set msgs to messages of inbox\n  set n to {limit}\n  if n > (count of msgs) then set n to count of msgs\n  repeat with i from 1 to n\n    set m to item i of msgs\n    set out to out & (sender of m) & \" \u2014 \" & (subject of m) & linefeed\n  end repeat\n  if out is \"\" then return \"inbox is empty\"\n  return out\nend tell"
+  },
+  {
+    "name": "search_mail",
+    "app": "Mail",
+    "destructive": false,
+    "description": "Search the inbox for messages whose subject contains the given text.",
+    "params": {
+      "query": "string",
+      "limit": "integer"
+    },
+    "script": "tell application \"Mail\"\n  set out to \"\"\n  set found to (messages of inbox whose subject contains \"{query}\")\n  set n to {limit}\n  if n > (count of found) then set n to count of found\n  repeat with i from 1 to n\n    set m to item i of found\n    set out to out & (sender of m) & \" \u2014 \" & (subject of m) & linefeed\n  end repeat\n  if out is \"\" then return \"no matches\"\n  return out\nend tell"
+  },
+  {
+    "name": "find_file",
+    "app": "Finder",
+    "destructive": false,
+    "description": "Find files by name anywhere in the home folder. Give a plain word or extension such as invoice or pdf, never a wildcard pattern.",
+    "params": {
+      "name": "string",
+      "limit": "integer"
+    },
+    "script": "do shell script \"mdfind -onlyin ~ -name '{name}' | head -{limit}\""
+  },
+  {
+    "name": "open_file",
+    "app": "Finder",
+    "destructive": false,
+    "description": "Open a file or folder in its default application.",
+    "params": {
+      "path": "string"
+    },
+    "script": "do shell script \"open '{path}'\"\nreturn \"opened\""
+  },
+  {
+    "name": "recent_files",
+    "app": "Finder",
+    "destructive": false,
+    "description": "List files in the home folder changed most recently.",
+    "params": {
+      "limit": "integer"
+    },
+    "script": "do shell script \"find ~ -type f -not -path '*/.*' -mtime -2 -print0 2>/dev/null | xargs -0 ls -lt 2>/dev/null | head -{limit} | awk '{print $NF}'\""
+  },
+  {
+    "name": "large_files",
+    "app": "Finder",
+    "destructive": false,
+    "description": "List the largest files in the home folder, biggest first.",
+    "params": {
+      "limit": "integer"
+    },
+    "script": "do shell script \"mdfind -onlyin ~ 'kMDItemFSSize > 200000000' 2>/dev/null | head -{limit} | while read f; do du -h \\\"$f\\\" 2>/dev/null; done | sort -rh\""
+  },
+  {
+    "name": "disk_free",
+    "app": "System",
+    "destructive": false,
+    "description": "Report free disk space on the startup volume.",
+    "params": {},
+    "script": "do shell script \"df -h / | tail -1 | awk '{print $4 \\\" free of \\\" $2}'\""
+  },
+  {
+    "name": "move_file",
+    "app": "Finder",
+    "destructive": true,
+    "description": "Move a file to another folder. DESTRUCTIVE.",
+    "params": {
+      "path": "string",
+      "dest": "string"
+    },
+    "script": "do shell script \"mv '{path}' '{dest}'\"\nreturn \"moved\""
+  },
+  {
+    "name": "trash_file",
+    "app": "Finder",
+    "destructive": true,
+    "description": "Move a file to the Trash. DESTRUCTIVE.",
+    "params": {
+      "path": "string"
+    },
+    "script": "tell application \"Finder\" to delete POSIX file \"{path}\"\nreturn \"trashed\""
+  },
+  {
+    "name": "empty_trash",
+    "app": "Finder",
+    "destructive": true,
+    "description": "Empty the Trash permanently. DESTRUCTIVE.",
+    "params": {},
+    "script": "tell application \"Finder\" to empty trash\nreturn \"emptied\""
+  },
+  {
+    "name": "create_note",
+    "app": "Notes",
+    "destructive": false,
+    "description": "Create a note with a title and body.",
+    "params": {
+      "title": "string",
+      "body": "string"
+    },
+    "script": "tell application \"Notes\"\n  tell account 1\n    make new note with properties {name:\"{title}\", body:\"{body}\"}\n  end tell\nend tell\nreturn \"created\""
+  },
+  {
+    "name": "search_notes",
+    "app": "Notes",
+    "destructive": false,
+    "description": "Find notes whose title contains the given text.",
+    "params": {
+      "query": "string"
+    },
+    "script": "tell application \"Notes\"\n  set out to \"\"\n  repeat with n in (notes of account 1 whose name contains \"{query}\")\n    set out to out & (name of n) & linefeed\n  end repeat\n  if out is \"\" then return \"no matching notes\"\n  return out\nend tell"
+  },
+  {
+    "name": "read_note",
+    "app": "Notes",
+    "destructive": false,
+    "description": "Read the contents of a note by title.",
+    "params": {
+      "title": "string"
+    },
+    "script": "tell application \"Notes\"\n  set matches to (notes of account 1 whose name contains \"{title}\")\n  if (count of matches) is 0 then return \"no such note\"\n  return plaintext of item 1 of matches\nend tell"
+  },
+  {
+    "name": "create_reminder",
+    "app": "Reminders",
+    "destructive": false,
+    "description": "Create a reminder, optionally due at a date and time.",
+    "params": {
+      "title": "string",
+      "due": "date"
+    },
+    "script": "set d to (current date)\nset year of d to {due_y}\nset month of d to {due_mo}\nset day of d to {due_d}\nset time of d to ({due_h} * hours) + ({due_mi} * minutes)\ntell application \"Reminders\"\n  make new reminder with properties {name:\"{title}\", due date:d}\nend tell\nreturn \"created\""
+  },
+  {
+    "name": "list_reminders",
+    "app": "Reminders",
+    "destructive": false,
+    "description": "List reminders that are not yet completed.",
+    "params": {},
+    "script": "tell application \"Reminders\"\n  set out to \"\"\n  repeat with r in (reminders whose completed is false)\n    set out to out & (name of r) & linefeed\n  end repeat\n  if out is \"\" then return \"nothing outstanding\"\n  return out\nend tell"
+  },
+  {
+    "name": "complete_reminder",
+    "app": "Reminders",
+    "destructive": false,
+    "description": "Mark a reminder as completed by title.",
+    "params": {
+      "title": "string"
+    },
+    "script": "tell application \"Reminders\"\n  set matches to (reminders whose completed is false and name contains \"{title}\")\n  if (count of matches) is 0 then return \"no such reminder\"\n  set completed of item 1 of matches to true\nend tell\nreturn \"completed\""
+  },
+  {
+    "name": "battery_status",
+    "app": "System",
+    "destructive": false,
+    "description": "Report battery percentage and whether the Mac is charging.",
+    "params": {},
+    "script": "do shell script \"pmset -g batt | tail -1 | awk -F'; ' '{print $1 \\\" \\\" $2}' | sed 's/^.*\\t//'\""
+  },
+  {
+    "name": "set_volume",
+    "app": "System",
+    "destructive": false,
+    "description": "Set the system output volume, 0 to 100.",
+    "params": {
+      "level": "integer"
+    },
+    "script": "set volume output volume {level}\nreturn \"volume {level}\""
+  },
+  {
+    "name": "mute_audio",
+    "app": "System",
+    "destructive": false,
+    "description": "Mute or unmute system audio.",
+    "params": {
+      "state": "string"
+    },
+    "script": "if \"{state}\" is \"on\" or \"{state}\" is \"true\" or \"{state}\" is \"mute\" then\n  set volume with output muted\n  return \"muted\"\nelse\n  set volume without output muted\n  return \"unmuted\"\nend if"
+  },
+  {
+    "name": "set_dark_mode",
+    "app": "System",
+    "destructive": false,
+    "description": "Turn dark mode on or off.",
+    "params": {
+      "state": "string"
+    },
+    "script": "tell application \"System Events\"\n  tell appearance preferences\n    if \"{state}\" is \"on\" or \"{state}\" is \"true\" or \"{state}\" is \"dark\" then\n      set dark mode to true\n    else\n      set dark mode to false\n    end if\n    return \"dark mode \" & (dark mode as text)\n  end tell\nend tell"
+  },
+  {
+    "name": "lock_screen",
+    "app": "System",
+    "destructive": false,
+    "description": "Lock the screen immediately.",
+    "params": {},
+    "script": "do shell script \"pmset displaysleepnow\"\nreturn \"locked\""
+  },
+  {
+    "name": "top_processes",
+    "app": "System",
+    "destructive": false,
+    "description": "List the processes using the most CPU right now.",
+    "params": {
+      "limit": "integer"
+    },
+    "script": "do shell script \"ps -Arco pid,pcpu,comm | head -{limit}\""
+  },
+  {
+    "name": "memory_pressure",
+    "app": "System",
+    "destructive": false,
+    "description": "Report free memory and swap use, for when the Mac feels slow.",
+    "params": {},
+    "script": "do shell script \"vm_stat | head -4; sysctl -n vm.swapusage\""
+  },
+  {
+    "name": "wifi_status",
+    "app": "System",
+    "destructive": false,
+    "description": "Report which wifi network the Mac is on.",
+    "params": {},
+    "script": "do shell script \"networksetup -getairportnetwork en0\""
+  },
+  {
+    "name": "current_datetime",
+    "app": "System",
+    "destructive": false,
+    "description": "Report the current date and time.",
+    "params": {},
+    "script": "return (current date) as text"
+  }
+]

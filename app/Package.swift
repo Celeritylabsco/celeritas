@@ -18,6 +18,9 @@ let package = Package(
     ],
     targets: [
         .target(name: "CeleritasKit", resources: [.process("Resources")]),
+        // Measures the launcher rather than a model: which path answers a
+        // query, and whether that answer is right.
+        .executableTarget(name: "RoutingBench", dependencies: ["CeleritasKit"]),
         .executableTarget(name: "Celeritas", dependencies: ["CeleritasKit"]),
         // Apple Intelligence behind an OpenAI-shaped endpoint, so the Python
         // benchmark scores it with the same tasks and verifiers as everything else.

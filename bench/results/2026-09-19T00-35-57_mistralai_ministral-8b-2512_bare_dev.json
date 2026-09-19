@@ -1,0 +1,1040 @@
+{
+ "model": "mistralai/ministral-8b-2512",
+ "started_utc": "2026-09-19T00:35:57+00:00",
+ "wall_seconds": 135.4,
+ "base": "https://www.orbio.so/api/v1",
+ "prompt_variant": "",
+ "tool_choice": "auto",
+ "parallel": true,
+ "timings_valid": false,
+ "task_count": 55,
+ "split": "dev",
+ "trials": 1,
+ "passed": 50,
+ "total": 55,
+ "accuracy": 0.909,
+ "mean_seconds": 2.46,
+ "median_seconds": 2.25,
+ "total_cost": 0.006589,
+ "max_turns": 5,
+ "by_capability": {
+  "calendar": "7/7",
+  "files": "6/6",
+  "mail": "6/6",
+  "multi_tool": "3/4",
+  "notes": "4/4",
+  "rejection": "5/8",
+  "reminders": "4/4",
+  "settings": "7/8",
+  "status": "8/8"
+ },
+ "machine_before": {
+  "chip": "Apple M4 Pro",
+  "free_mb": 96,
+  "compressed_mb": 10133,
+  "swap": "total = 29696.00M  used = 28629.12M  free = 1066.88M  (encrypted)"
+ },
+ "machine_after": {
+  "chip": "Apple M4 Pro",
+  "free_mb": 93,
+  "compressed_mb": 8067,
+  "swap": "total = 29696.00M  used = 28525.12M  free = 1170.88M  (encrypted)"
+ },
+ "rows": [
+  {
+   "trial": 0,
+   "id": "set-vol-lit-imp",
+   "capability": "settings",
+   "phrasing": "imperative",
+   "depth": "literal",
+   "prompt": "set the volume to 20",
+   "passed": true,
+   "calls": [
+    "set_volume"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 2.4,
+   "cost": 0.00037797,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "set-vol-sem-col",
+   "capability": "settings",
+   "phrasing": "colloquial",
+   "depth": "semantic",
+   "prompt": "this is way too loud",
+   "passed": true,
+   "calls": [
+    "set_volume"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 2.38,
+   "cost": 0.00037617,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "set-vol-sem-imp2",
+   "capability": "settings",
+   "phrasing": "implicit",
+   "depth": "semantic",
+   "prompt": "i can barely hear it",
+   "passed": false,
+   "calls": [
+    "set_volume"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 2.09,
+   "cost": 9.909e-05,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "set-mute-lit-imp",
+   "capability": "settings",
+   "phrasing": "imperative",
+   "depth": "literal",
+   "prompt": "mute the sound",
+   "passed": true,
+   "calls": [
+    "mute_audio"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 2.63,
+   "cost": 0.00010029,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "set-dark-lit-imp",
+   "capability": "settings",
+   "phrasing": "imperative",
+   "depth": "literal",
+   "prompt": "turn on dark mode",
+   "passed": true,
+   "calls": [
+    "set_dark_mode"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 2.52,
+   "cost": 0.00010059000000000001,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "set-dark-sem-col",
+   "capability": "settings",
+   "phrasing": "colloquial",
+   "depth": "semantic",
+   "prompt": "my eyes are killing me, it's too bright in here",
+   "passed": true,
+   "calls": [
+    "set_dark_mode"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 2.17,
+   "cost": 0.00010164,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "set-lock-lit-imp",
+   "capability": "settings",
+   "phrasing": "imperative",
+   "depth": "literal",
+   "prompt": "lock the screen",
+   "passed": true,
+   "calls": [
+    "lock_screen"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 2.15,
+   "cost": 9.654e-05,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "set-lock-sem-imp",
+   "capability": "settings",
+   "phrasing": "implicit",
+   "depth": "semantic",
+   "prompt": "i'm heading out for lunch",
+   "passed": true,
+   "calls": [
+    "lock_screen"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 2.61,
+   "cost": 9.789e-05,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "sta-batt-q",
+   "capability": "status",
+   "phrasing": "question",
+   "depth": "literal",
+   "prompt": "what's my battery at",
+   "passed": true,
+   "calls": [
+    "battery_status"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 2.02,
+   "cost": 0.00010104,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "sta-batt-sem",
+   "capability": "status",
+   "phrasing": "implicit",
+   "depth": "semantic",
+   "prompt": "do i need to find a charger",
+   "passed": true,
+   "calls": [
+    "battery_status"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 2.02,
+   "cost": 9.939000000000001e-05,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "sta-disk-q",
+   "capability": "status",
+   "phrasing": "question",
+   "depth": "literal",
+   "prompt": "how much disk space is free",
+   "passed": true,
+   "calls": [
+    "disk_free"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 2.18,
+   "cost": 0.00010074,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "sta-disk-col",
+   "capability": "status",
+   "phrasing": "colloquial",
+   "depth": "semantic",
+   "prompt": "am i running out of room on this thing",
+   "passed": true,
+   "calls": [
+    "disk_free"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 2.11,
+   "cost": 0.00010074,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "sta-slow-q",
+   "capability": "status",
+   "phrasing": "question",
+   "depth": "semantic",
+   "prompt": "why is my mac so slow",
+   "passed": true,
+   "calls": [
+    "memory_pressure"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 2.63,
+   "cost": 0.00010404,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "sta-cpu-imp",
+   "capability": "status",
+   "phrasing": "imperative",
+   "depth": "literal",
+   "prompt": "show me what's using the cpu",
+   "passed": true,
+   "calls": [
+    "top_processes"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 1.93,
+   "cost": 0.00010643999999999999,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "sta-wifi-q",
+   "capability": "status",
+   "phrasing": "question",
+   "depth": "literal",
+   "prompt": "which wifi am i on",
+   "passed": true,
+   "calls": [
+    "wifi_status"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 2.58,
+   "cost": 0.00010029,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "sta-date-q",
+   "capability": "status",
+   "phrasing": "question",
+   "depth": "literal",
+   "prompt": "what's the date today",
+   "passed": true,
+   "calls": [
+    "current_datetime"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 2.22,
+   "cost": 0.00010269000000000001,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "cal-create-lit",
+   "capability": "calendar",
+   "phrasing": "imperative",
+   "depth": "literal",
+   "prompt": "create an event called standup on friday at 3",
+   "passed": true,
+   "calls": [
+    "create_event"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 2.76,
+   "cost": 9.921e-05,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "cal-create-col",
+   "capability": "calendar",
+   "phrasing": "colloquial",
+   "depth": "literal",
+   "prompt": "stick a coffee with sam in for tomorrow at 11",
+   "passed": true,
+   "calls": [
+    "create_event"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 3.22,
+   "cost": 9.711e-05,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "cal-read-q",
+   "capability": "calendar",
+   "phrasing": "question",
+   "depth": "semantic",
+   "prompt": "am i free tomorrow",
+   "passed": true,
+   "calls": [
+    "list_events"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 2.32,
+   "cost": 0.00010224,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "cal-next-q",
+   "capability": "calendar",
+   "phrasing": "question",
+   "depth": "literal",
+   "prompt": "what's my next meeting",
+   "passed": true,
+   "calls": [
+    "next_event"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 2.46,
+   "cost": 9.849e-05,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "cal-read-imp",
+   "capability": "calendar",
+   "phrasing": "imperative",
+   "depth": "literal",
+   "prompt": "list my events for today",
+   "passed": true,
+   "calls": [
+    "list_events"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 2.36,
+   "cost": 0.00010284,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "cal-delete-lit",
+   "capability": "calendar",
+   "phrasing": "imperative",
+   "depth": "literal",
+   "prompt": "delete the dentist appointment",
+   "passed": true,
+   "calls": [
+    "next_event",
+    "delete_event"
+   ],
+   "turns": 3,
+   "stopped": "answered",
+   "seconds": 3.01,
+   "cost": 0.00014118,
+   "error": null,
+   "retries": 2
+  },
+  {
+   "trial": 0,
+   "id": "cal-read-impl",
+   "capability": "calendar",
+   "phrasing": "implicit",
+   "depth": "semantic",
+   "prompt": "have i got anything on this afternoon",
+   "passed": true,
+   "calls": [
+    "list_events"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 2.14,
+   "cost": 0.00010329,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "mail-send-lit",
+   "capability": "mail",
+   "phrasing": "imperative",
+   "depth": "literal",
+   "prompt": "email daisy@example.com with subject Agenda saying it starts at 10",
+   "passed": true,
+   "calls": [
+    "send_email"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 2.25,
+   "cost": 9.321000000000001e-05,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "mail-send-col",
+   "capability": "mail",
+   "phrasing": "colloquial",
+   "depth": "literal",
+   "prompt": "fire off a note to sam@example.com about the invoice",
+   "passed": true,
+   "calls": [
+    "send_email"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 2.49,
+   "cost": 9.741e-05,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "mail-unread-q",
+   "capability": "mail",
+   "phrasing": "question",
+   "depth": "literal",
+   "prompt": "how many unread emails have i got",
+   "passed": true,
+   "calls": [
+    "unread_count"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 2.87,
+   "cost": 9.939000000000001e-05,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "mail-unread-col",
+   "capability": "mail",
+   "phrasing": "colloquial",
+   "depth": "semantic",
+   "prompt": "anything new in my inbox",
+   "passed": true,
+   "calls": [
+    "unread_count"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 2.1,
+   "cost": 0.00037617,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "mail-search-imp",
+   "capability": "mail",
+   "phrasing": "imperative",
+   "depth": "literal",
+   "prompt": "search my mail for the agenda",
+   "passed": true,
+   "calls": [
+    "search_mail"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 2.5,
+   "cost": 0.00010689,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "mail-recent-imp",
+   "capability": "mail",
+   "phrasing": "imperative",
+   "depth": "literal",
+   "prompt": "show me my recent mail",
+   "passed": true,
+   "calls": [
+    "list_recent_mail"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 1.97,
+   "cost": 0.00010418999999999999,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "file-find-lit",
+   "capability": "files",
+   "phrasing": "imperative",
+   "depth": "literal",
+   "prompt": "find a file called invoice",
+   "passed": true,
+   "calls": [
+    "find_file"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 1.89,
+   "cost": 0.00010284,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "file-find-col",
+   "capability": "files",
+   "phrasing": "colloquial",
+   "depth": "semantic",
+   "prompt": "where did i put that invoice pdf",
+   "passed": true,
+   "calls": [
+    "find_file"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 2.76,
+   "cost": 0.00010509,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "file-recent-imp",
+   "capability": "files",
+   "phrasing": "imperative",
+   "depth": "literal",
+   "prompt": "show me my recent files",
+   "passed": true,
+   "calls": [
+    "recent_files"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 2.57,
+   "cost": 0.00010719000000000001,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "file-large-col",
+   "capability": "files",
+   "phrasing": "colloquial",
+   "depth": "semantic",
+   "prompt": "what's eating all my storage",
+   "passed": true,
+   "calls": [
+    "disk_free",
+    "large_files"
+   ],
+   "turns": 3,
+   "stopped": "answered",
+   "seconds": 2.93,
+   "cost": 0.00014328,
+   "error": null,
+   "retries": 2
+  },
+  {
+   "trial": 0,
+   "id": "file-open-lit",
+   "capability": "files",
+   "phrasing": "imperative",
+   "depth": "literal",
+   "prompt": "open /Users/you/Documents/meeting-notes.txt",
+   "passed": true,
+   "calls": [
+    "open_file"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 2.21,
+   "cost": 8.795999999999999e-05,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "file-trash-lit",
+   "capability": "files",
+   "phrasing": "imperative",
+   "depth": "literal",
+   "prompt": "move /Users/you/Downloads/holiday.mov to the trash",
+   "passed": true,
+   "calls": [
+    "trash_file"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 1.96,
+   "cost": 9.020999999999999e-05,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "note-create-lit",
+   "capability": "notes",
+   "phrasing": "imperative",
+   "depth": "literal",
+   "prompt": "make a note called Ideas that says try the new build",
+   "passed": true,
+   "calls": [
+    "create_note"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 2.02,
+   "cost": 8.795999999999999e-05,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "note-search-imp",
+   "capability": "notes",
+   "phrasing": "imperative",
+   "depth": "literal",
+   "prompt": "search my notes for groceries",
+   "passed": true,
+   "calls": [
+    "search_notes"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 2.04,
+   "cost": 0.00010224,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "note-read-q",
+   "capability": "notes",
+   "phrasing": "question",
+   "depth": "semantic",
+   "prompt": "what's on my groceries note",
+   "passed": true,
+   "calls": [
+    "search_notes"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 2.47,
+   "cost": 0.00010224,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "note-create-col",
+   "capability": "notes",
+   "phrasing": "colloquial",
+   "depth": "semantic",
+   "prompt": "jot down that the wifi password is on the router",
+   "passed": true,
+   "calls": [
+    "create_note"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 2.14,
+   "cost": 8.736e-05,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "rem-create-lit",
+   "capability": "reminders",
+   "phrasing": "imperative",
+   "depth": "literal",
+   "prompt": "remind me to call the bank tomorrow",
+   "passed": true,
+   "calls": [
+    "create_reminder"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 2.95,
+   "cost": 9.005999999999999e-05,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "rem-create-col",
+   "capability": "reminders",
+   "phrasing": "colloquial",
+   "depth": "semantic",
+   "prompt": "don't let me forget to renew the insurance",
+   "passed": true,
+   "calls": [
+    "create_reminder"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 2.37,
+   "cost": 9.186e-05,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "rem-list-q",
+   "capability": "reminders",
+   "phrasing": "question",
+   "depth": "literal",
+   "prompt": "what reminders have i got",
+   "passed": true,
+   "calls": [
+    "list_reminders"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 1.97,
+   "cost": 9.834e-05,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "rem-complete-lit",
+   "capability": "reminders",
+   "phrasing": "imperative",
+   "depth": "literal",
+   "prompt": "mark the gas bill reminder as done",
+   "passed": true,
+   "calls": [
+    "complete_reminder"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 1.94,
+   "cost": 0.00010254,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "rej-offtopic-food",
+   "capability": "rejection",
+   "phrasing": "imperative",
+   "depth": "boundary",
+   "prompt": "order me a pizza",
+   "passed": true,
+   "calls": [
+    "intent_unclear"
+   ],
+   "turns": 1,
+   "stopped": "refused",
+   "seconds": 1.6,
+   "cost": 4.797e-05,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "rej-offtopic-weather",
+   "capability": "rejection",
+   "phrasing": "question",
+   "depth": "boundary",
+   "prompt": "what's the weather going to be tomorrow",
+   "passed": true,
+   "calls": [
+    "intent_unclear"
+   ],
+   "turns": 1,
+   "stopped": "refused",
+   "seconds": 0.97,
+   "cost": 4.857e-05,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "rej-pronoun",
+   "capability": "rejection",
+   "phrasing": "imperative",
+   "depth": "boundary",
+   "prompt": "turn it on",
+   "passed": true,
+   "calls": [
+    "intent_unclear"
+   ],
+   "turns": 1,
+   "stopped": "refused",
+   "seconds": 1.15,
+   "cost": 4.782e-05,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "rej-ambiguous",
+   "capability": "rejection",
+   "phrasing": "colloquial",
+   "depth": "boundary",
+   "prompt": "make it nicer in here",
+   "passed": false,
+   "calls": [
+    "set_dark_mode"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 2.16,
+   "cost": 0.00010119,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "rej-unsupported-tv",
+   "capability": "rejection",
+   "phrasing": "imperative",
+   "depth": "boundary",
+   "prompt": "turn the tv over to bbc one",
+   "passed": true,
+   "calls": [
+    "intent_unclear"
+   ],
+   "turns": 1,
+   "stopped": "refused",
+   "seconds": 1.16,
+   "cost": 4.857e-05,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "rej-unsupported-bright",
+   "capability": "rejection",
+   "phrasing": "imperative",
+   "depth": "boundary",
+   "prompt": "set the screen brightness to 40 percent",
+   "passed": false,
+   "calls": [],
+   "turns": 1,
+   "stopped": "answered",
+   "seconds": 1.41,
+   "cost": 5.247e-05,
+   "error": null,
+   "retries": 0
+  },
+  {
+   "trial": 0,
+   "id": "rej-incomplete-mail",
+   "capability": "rejection",
+   "phrasing": "imperative",
+   "depth": "boundary",
+   "prompt": "send an email about the meeting",
+   "passed": false,
+   "calls": [
+    "unread_count",
+    "list_recent_mail",
+    "send_email"
+   ],
+   "turns": 4,
+   "stopped": "answered",
+   "seconds": 4.68,
+   "cost": 0.00020472,
+   "error": null,
+   "retries": 3
+  },
+  {
+   "trial": 0,
+   "id": "rej-general-knowledge",
+   "capability": "rejection",
+   "phrasing": "question",
+   "depth": "boundary",
+   "prompt": "who won the world cup in 1966",
+   "passed": true,
+   "calls": [
+    "intent_unclear"
+   ],
+   "turns": 1,
+   "stopped": "refused",
+   "seconds": 1.12,
+   "cost": 4.902e-05,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "multi-cal-rem",
+   "capability": "multi_tool",
+   "phrasing": "imperative",
+   "depth": "semantic",
+   "prompt": "check what's on tomorrow and remind me to prepare for it tonight",
+   "passed": false,
+   "calls": [
+    "list_events"
+   ],
+   "turns": 2,
+   "stopped": "answered",
+   "seconds": 2.35,
+   "cost": 8.826e-05,
+   "error": null,
+   "retries": 1
+  },
+  {
+   "trial": 0,
+   "id": "multi-find-open",
+   "capability": "multi_tool",
+   "phrasing": "imperative",
+   "depth": "literal",
+   "prompt": "find the meeting notes and open them",
+   "passed": true,
+   "calls": [
+    "find_file",
+    "open_file"
+   ],
+   "turns": 3,
+   "stopped": "answered",
+   "seconds": 9.53,
+   "cost": 0.00014718,
+   "error": null,
+   "retries": 2
+  },
+  {
+   "trial": 0,
+   "id": "multi-quiet",
+   "capability": "multi_tool",
+   "phrasing": "colloquial",
+   "depth": "semantic",
+   "prompt": "i'm about to join a call, mute me and turn on dark mode",
+   "passed": true,
+   "calls": [
+    "mute_audio",
+    "set_dark_mode"
+   ],
+   "turns": 3,
+   "stopped": "answered",
+   "seconds": 3.56,
+   "cost": 0.00042231,
+   "error": null,
+   "retries": 2
+  },
+  {
+   "trial": 0,
+   "id": "multi-note-rem",
+   "capability": "multi_tool",
+   "phrasing": "imperative",
+   "depth": "literal",
+   "prompt": "make a note called Shop saying buy milk, then remind me to go shopping tomorrow",
+   "passed": true,
+   "calls": [
+    "create_note",
+    "create_reminder"
+   ],
+   "turns": 3,
+   "stopped": "answered",
+   "seconds": 4.39,
+   "cost": 0.00014445,
+   "error": null,
+   "retries": 2
+  }
+ ]
+}
