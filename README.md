@@ -222,13 +222,6 @@ What we hold ourselves to, and you can check every line of it in this repo:
 - Nothing here sits behind an account. MIT for the code, CC BY 4.0 for the data,
   no sign-up, no telemetry, no cut of anything you spend.
 
-The rest of the lab runs on the same idea. Donations, sponsorship and lab-funded
-purchases pay into a treasury, the treasury buys Orbio inference credit below
-face on Orbio's own order book, and that credit goes back out free through
-open-entry games for builders. That side is still being built. When it runs,
-every purchase and every prize lands in a public ledger with the transaction
-hash beside it.
-
 ## Powered by Orbio
 
 [Orbio](https://orbio.so) is the gateway behind the best answers Celeritas
