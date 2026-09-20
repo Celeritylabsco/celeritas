@@ -73,9 +73,45 @@ project. To make your own disk image:
 ./Scripts/make-dmg.sh
 ```
 
-### Worth reading before you run it
+### Running the tests
 
-It is a small codebase and these are the files that matter:
+```sh
+swift run CeleritasKitTests
+```
+
+259 checks over the parsing, routing, formatting and storage that everything
+else sits on. They are a plain executable rather than XCTest, because XCTest
+does not ship with the Command Line Tools, and needing Xcode to run a test
+suite is a barrier for a repo this size.
+
+The routing benchmark is the other half of the testing, and it measures which
+path answers a query rather than whether a function is correct:
+
+```sh
+swift run RoutingBench --spec ../bench/routing.json --out ../bench/results
+```
+
+Both commands run from `app/`, where `Package.swift` is, which is why the
+benchmark paths climb out of it.
+
+### How the repo is laid out
+
+```
+app/Sources/Celeritas/          the app: palette, settings, onboarding, hotkey
+app/Sources/CeleritasKit/       everything that is not UI, and the tested half
+app/Sources/CeleritasKitTests/  the 259 checks
+app/Sources/RoutingBench/       the routing benchmark
+app/Sources/AppleShim/          Apple Intelligence behind an OpenAI-shaped
+                                endpoint, so the benchmark can score it on the
+                                same tasks as every other model
+app/Scripts/                    build the .app, the disk image, the icon
+bench/                          the model benchmark: tasks, scoring, every run
+                                record, and the scripts that made them
+runtime/                        the python agent loop the benchmark drives
+tools/tools.json                all 32 tools, in full
+```
+
+These are the files to read first:
 
 ```
 app/Sources/CeleritasKit/Results.swift    what happens to every keystroke
@@ -256,7 +292,7 @@ is right. It found two bugs the first time it ran.
 
 ```sh
 python3 bench/run.py --model <id> --split heldout
-swift run RoutingBench --spec bench/routing.json --out bench/results
+(cd app && swift run RoutingBench --spec ../bench/routing.json --out ../bench/results)
 ```
 
 The write-up is at [celeritylabs.co/notes/tool-choice](https://celeritylabs.co/notes/tool-choice).
