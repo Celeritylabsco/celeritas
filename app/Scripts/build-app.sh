@@ -8,8 +8,23 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 
 CONFIG="${1:-debug}"
-swift build -c "$CONFIG"
-BIN="$(swift build -c "$CONFIG" --show-bin-path)"
+
+# SwiftPM bakes the absolute path of the resource bundle into the binary, for
+# Bundle.module to find at runtime. With the default .build directory that path
+# names whoever built it, and `strings Celeritas | grep /Users/` reads it
+# straight out of a shipped app. The 2026.09.19 dmg went out carrying the build
+# machine's username that way.
+#
+# A release therefore builds somewhere with nothing personal in the path. Debug
+# keeps the default, because that is the copy nobody ships and moving it would
+# throw away the incremental build every time /tmp is cleared.
+SCRATCH=()
+if [ "$CONFIG" = "release" ]; then
+  SCRATCH=(--scratch-path /tmp/celeritas-release-build)
+fi
+
+swift build -c "$CONFIG" "${SCRATCH[@]}"
+BIN="$(swift build -c "$CONFIG" "${SCRATCH[@]}" --show-bin-path)"
 
 APP="build/Celeritas.app"
 rm -rf "$APP"

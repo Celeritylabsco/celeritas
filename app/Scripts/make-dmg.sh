@@ -33,6 +33,23 @@ DEST_Y=168
 [ -d "$APP" ] || { echo "no app at $APP. Run ./Scripts/build-app.sh first."; exit 1; }
 [ -f "$BACKGROUND" ] || { echo "no background. Run ./Scripts/make-dmg-background.py first."; exit 1; }
 
+# Nothing leaves here naming the machine that built it. SwiftPM writes the
+# absolute path of the resource bundle into the binary so Bundle.module can
+# find it, and with the default .build directory that path carries the build
+# user's home. The 2026.09.19 release shipped with it, and `strings Celeritas`
+# read it out of the downloaded app.
+#
+# build-app.sh builds a release under /tmp to avoid it. This refuses to package
+# one that slipped through, because a comment explaining the rule is worth less
+# than a check that stops the upload.
+LEAKED=$(strings -a "$APP/Contents/MacOS/Celeritas" 2>/dev/null | grep -o "/Users/[A-Za-z0-9_.-]*" | sort -u || true)
+if [ -n "$LEAKED" ]; then
+  echo "refusing to package: the binary names a home directory"
+  echo "$LEAKED" | sed 's/^/  /'
+  echo "  rebuild with ./Scripts/build-app.sh release"
+  exit 1
+fi
+
 # A half-mounted image from a failed run holds the name and makes the next run
 # mount as "Celeritas 1", which lays the icons out in the wrong window.
 hdiutil detach "/Volumes/$VOLUME" -force >/dev/null 2>&1 || true
