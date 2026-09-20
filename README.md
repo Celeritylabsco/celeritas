@@ -19,10 +19,10 @@ and drag it to Applications.
 
 ### Check it first
 
-The download is 2 MB. Confirm it is the file we published:
+The download is 4 MB. Confirm it is the file we published:
 
 ```sh
-shasum -a 256 ~/Downloads/Celeritas-2026.09.19.dmg
+shasum -a 256 ~/Downloads/Celeritas-*.dmg
 ```
 
 The number it prints is on the [release page](https://github.com/Celeritylabsco/celeritas/releases/latest).
