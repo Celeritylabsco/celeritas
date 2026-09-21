@@ -3,12 +3,11 @@
 # :free, :batch or -latest id makes a published score unreproducible.
 set -u
 cd "$(dirname "$0")/.."
-# The keys live in the labs repo, checked out beside this one. Set
-# CELERITY_LABS if yours is somewhere else.
-LABS="${CELERITY_LABS:-$PWD/../celerity-labs}"
-[ -f "$LABS/.env" ] || { echo "no .env at $LABS, set CELERITY_LABS"; exit 1; }
-set -a; . "$LABS/.env"; set +a
-export CELERITY_BASE="$ORBIO_API_BASE" CELERITY_KEY="$ORBIO_OPENROUTER_KEY"
+# Bring your own key. CELERITY_KEY is an Orbio key, CELERITY_BASE its
+# gateway, and both are read from the environment so this runs anywhere
+# rather than only next to one particular checkout.
+: "${CELERITY_KEY:?set CELERITY_KEY to an Orbio key. Get one at https://orbio.so}"
+export CELERITY_BASE="${CELERITY_BASE:-https://www.orbio.so/api/v1}"
 
 MODELS=(
   "google/gemini-2.5-flash-lite"

@@ -290,10 +290,18 @@ the model this app used to ship with from first to eighth.
 paths answers a query, and for the 23 with one right answer, whether the answer
 is right. It found two bugs the first time it ran.
 
+The tool-choice half calls a model, so it needs your own key. The routing half
+runs entirely on your machine and needs nothing.
+
 ```sh
+export CELERITY_KEY=sk-orb-...    # your Orbio key, from https://orbio.so
 python3 bench/run.py --model <id> --split heldout
 (cd app && swift run RoutingBench --spec ../bench/routing.json --out ../bench/results)
 ```
+
+`bench/roster.sh` runs the whole cloud roster, and `bench/roster-parallel.sh`
+runs it concurrently. Both read `CELERITY_KEY` from the environment, and
+`CELERITY_BASE` if you point them at a different OpenAI-shaped host.
 
 The write-up is at [celeritylabs.co/notes/tool-choice](https://celeritylabs.co/notes/tool-choice).
 The data is on

@@ -2,8 +2,9 @@
 """Ask a model to choose a tool.
 
 One OpenAI-shaped client. The host is configuration, never inferred from the
-key: an Orbio key sent to OpenRouter returns "Missing Authentication header",
-which reads like a broken request and sends you debugging your own code.
+key: an Orbio key sent to a different OpenAI-shaped host returns "Missing
+Authentication header", which reads like a broken request and sends you
+debugging your own code.
 
     CELERITY_BASE   defaults to Orbio's gateway
     CELERITY_KEY    the key for that host
