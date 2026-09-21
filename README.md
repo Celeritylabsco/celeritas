@@ -238,8 +238,8 @@ it took.
 
 ## Why a lab built a launcher
 
-Celerity Labs is a public lab. We measure what AI agents can actually do, and we
-publish the runs.
+Celerity Labs is an open benchmarking AI lab. We measure what AI models can
+actually do, build small tools with them, and publish every run.
 
 This app started as a test rig. The question was narrow: for an agent holding
 about thirty tools on a desktop, which small model picks the right one? There
