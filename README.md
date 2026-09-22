@@ -308,6 +308,38 @@ The data is on
 [Hugging Face](https://huggingface.co/datasets/celerity-labs/celeritybench-tool-choice),
 CC BY 4.0. If you publish a number from it, say which split it came from.
 
+## Chart Arena is not in this repository
+
+The lab's other product is Chart Arena: seven vision models read a real price
+chart with its ending removed, four of them appear in any round, and a person
+picks whoever read it best. It is live at
+[celeritylabs.co/arena](https://celeritylabs.co/arena) and its code is not
+here, deliberately.
+
+Two things break if the pipeline is public.
+
+**The rounds stop being a test.** Which asset, which window and where to cut
+are drawn from a seeded generator over a fixed asset list. Anybody holding
+that code can reproduce the exact pool before it is served, and an evaluation
+set you can compute in advance is a lookup table.
+
+**The blind comparison stops being blind.** The letter each model is given in
+a round is derived from the round id. Publish that and a reader can work out
+which model wrote read A while the round is still being voted on. The
+comparison only means something while nobody knows whose read they prefer.
+
+What is public instead:
+
+- The method, in full, on the site.
+- The leaderboard, cut daily, with confidence intervals and per-model
+  direction accuracy.
+- This repository, which is the lab's other product and its benchmark,
+  including every run record.
+
+Researchers who want to verify the pipeline or work with the underlying reads
+can ask: founder@celeritylabs.co. We would rather show it to somebody checking
+our work than to somebody building against it.
+
 ## What it sends, and where
 
 Worth being exact, since it reads your calendar and your mail.
